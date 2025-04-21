@@ -7,8 +7,8 @@ Structure of this directory:<br>
     - pspnet_r50-d8_512x512_80k_ade20k_20200615_014128-15a8b914.pth
 <br>
 <br>
-## LAUNCH THE SCRIPT under this directory (src_main_cpu):<br>
+<b>LAUNCH THE SCRIPT under this directory (src_main_cpu): </b><br>
+        >> python3 main_mqtt_handler_cpu.py<br>
 This script can be launched on CPU, hence, high capacity is needed (the best is GPU)<br>
->> python3 main_mqtt_handler_cpu.py<br>
->> python3 main_mqtt_handler_gpu.py<br>
+        >> python3 main_mqtt_handler_gpu.py<br>
 By default it chooses the device 0, to choose a define device run: >> CUDA_VISIBLE_DEVICES=yourCUDAnumber python3 main_mqtt_handler_gpu.py<br>
