@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>3D Visualiser</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/loaders/PLYLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        body {
+            background-color: #e4e4e4;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .title-container {
+            width: 100%;
+            text-align: center;
+            padding: 5px;
+            background-color: #0f569e;
+        }
+
+        .main-row {
+            display: flex;
+            flex: 1;
+            width: 100%;
+        }
+
+        .form-column {
+            width: 15%;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        .canvas-column {
+            width: 85%;
+            padding: 10px;
+        }
+
+        #threejs-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        input[type=range] {
+            width: 150px;
+            accent-color: #0f569e;
+        }
+
+        button {
+            width: 70%;
+            height: 50px;
+        }
+
+        .w3-margin-top button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container w3-container" style="color: white">
+        <h3><b>Visualiser of PLY files</b></h3>
+    </div>
+
+    <div class="main-row w3-cell-row">
+        <div class="form-column w3-container w3-cell w3-mobile">
+        <div class="w3-margin-bottom">
+            <p>Sequence selected:</p>
+            <p id="selectedinfo"></p><br>
+        </div>
+
+        <div class="w3-margin-bottom">
+            <p><label for="pointSizeSlider">Point size:</label></p><br>
+            <input type="range" id="pointSizeSlider" min="0.005" max="0.2" step="0.005" value="0.03"><br>
+            <p><span id="pointSizeValue">0.03</span><br><br></p>
+        </div>
+
+        <div class="w3-margin-bottom">
+            <p><label for="fpsRateSlider">FPS:</label></p><br>
+            <input type="range" id="fpsRateSlider" min="1" max="60" step="1" value="30"><br>
+            <p><span id="pointRateValue">30</span><br><br></p>
+        </div>
+
+        <div class="w3-margin-bottom">
+            <a href="/">
+            <button class="w3-button w3-round-xlarge" style="background-color:rgb(15, 86, 158); color: white;">
+                <b>Select new values</b>
+            </button>
+            </a>
+        </div>
+
+        <div class="w3-margin-top">
+            <button id="playBtn" class="w3-button w3-green w3-round-large"><b>Play</b></button>
+            <button id="stopBtn" class="w3-button w3-red w3-round-large"><b>Stop</b></button>
+        </div>
+        </div>
+
+        <div class="canvas-column w3-container w3-cell w3-mobile">
+        <p><b>Loaded! Press PLAY button</b></p>
+        <div id="threejs-container"></div>
+        </div>
+    </div>
+
+    <script>
+        // de memoria de la sesion, mostrar valor seleccionado 
+        const selectedContainer = sessionStorage.getItem('containerFrame');
+        document.getElementById('selectedinfo').textContent = `${selectedContainer}`;
+
+        // const (constante), let (variable)
+        let frameNames = [];
+        let currentFrameIndex = 0;
+        let scene, camera, renderer, controls, container;
+        let pointCloud = null;
+        let isPlaying = false;
+        let timeoutId = null;
+
+        // variables que cambian por el usuario 
+        let pointSize = parseFloat(document.getElementById('pointSizeSlider').value);
+        let fpsRate = parseInt(document.getElementById('fpsRateSlider').value);
+
+        container = document.getElementById('threejs-container');
+
+        function init() {
+            // THREEJS: scene, camera and renderer, plus light (no se pero en todos los ejemplos esta)
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xe4e4e4);
+
+            camera = new THREE.PerspectiveCamera(50, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+            camera.position.z = 1;
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            container.appendChild(renderer.domElement);
+
+            // controloes para mover la nube
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+
+            const light = new THREE.SpotLight(0xffffff);
+            light.position.set(20, 20, 20);
+            scene.add(light);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+            controls.update();
+        }
+
+        function loadNextFrame() {
+            if (!isPlaying || frameNames.length === 0) return;
+            // eliminar la que esta y cambiarla por otra 
+            if (pointCloud) {
+                scene.remove(pointCloud);
+                pointCloud.geometry.dispose();
+                pointCloud.material.dispose();
+                pointCloud = null;
+            }
+
+            // otra neuva de aqui ( de lo descargado por el index.html del azure)
+            const fileUrl = "/download_ply/" + frameNames[currentFrameIndex];
+            const loader = new THREE.PLYLoader();
+
+            loader.load(fileUrl, function (geometry) {
+                const material = new THREE.PointsMaterial({
+                    size: pointSize,
+                    vertexColors: true
+                });
+
+                pointCloud = new THREE.Points(geometry, material);
+                pointCloud.scale.set(1000, 1000, 1000); // *1000, mm -> m
+                pointCloud.rotation.x = Math.PI; // rotarla para visualizarla bien desde el ppio 
+                scene.add(pointCloud);
+
+                currentFrameIndex = (currentFrameIndex + 1) % frameNames.length;
+
+                const delay = 1000 / fpsRate; // function setTimeout en ms, FPS 
+                timeoutId = setTimeout(loadNextFrame, delay);
+                });
+        }
+
+        // leer valores del usuario el point size y el frame rate 
+        document.getElementById('pointSizeSlider').addEventListener('input', (e) => {
+            pointSize = parseFloat(e.target.value);
+            document.getElementById('pointSizeValue').textContent = pointSize;
+
+            if (pointCloud) {
+                pointCloud.material.size = pointSize;
+                pointCloud.material.needsUpdate = true;
+            }
+            });
+
+            document.getElementById('fpsRateSlider').addEventListener('input', (e) => {
+            fpsRate = parseInt(e.target.value);
+            document.getElementById('pointRateValue').textContent = fpsRate;
+        });
+
+        document.getElementById('playBtn').addEventListener('click', () => {
+            if (!isPlaying) {
+                isPlaying = true;
+                loadNextFrame();
+            }
+        });
+
+        document.getElementById('stopBtn').addEventListener('click', () => {
+            isPlaying = false;
+            clearTimeout(timeoutId);
+        });
+
+        // cuando se carga el segundo html, se "recogen" las urls de los frames descargados
+        window.onload = () => {
+            init();
+            fetch('/get_framesURL')
+                .then(res => res.json())
+                .then(data => {
+                frameNames = data;
+                })
+                .catch(err => console.error("Error cargando frames:", err));
+        };
+
+        // por si se cambia el tamaño de la pantalla (no funciona muy alla por el style del body)
+        window.addEventListener('resize', () => {
+            camera.aspect = container.offsetWidth / container.offsetHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+        });
+    </script>
+</body>
+</html>

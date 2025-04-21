@@ -1,0 +1,6 @@
+Flask
+numpy
+open3d
+azure-storage-blob
+Werkzeug
+threaded

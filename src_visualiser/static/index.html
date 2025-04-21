@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Visualiser</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: #e4e4e4;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            height: 100vh;
+        }
+
+        .title-container {
+            width: 100%;
+            text-align: center;
+            padding: 5px;
+            background-color: #0f569e;
+        }
+
+        .main-row {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            padding: 0;
+        }
+
+        .form-column {                                            
+            width: 15%;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        .canvas-column {
+            width: 85%;
+            padding: 10px;
+        }
+        
+        #threejs-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        button {
+            width: 50%;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container w3-container" style="color: white">
+        <h3><b>Visualiser of PLY files</b></h3>
+    </div>
+
+    <div class="main-row w3-cell-row">
+        <div class="form-column w3-container w3-cell w3-mobile">
+            <form id="userinfo" onsubmit="submitForm(event)">
+                <b>Select sequence</b>
+                <label for="containerSelect"><b><select name="container_name" id="containerSelect"><option value="" disabled selected>...</option></select></label>
+                <br><br>
+                <button onclick="w3.show('#showData')" type="submit" class="w3-button w3-round-xlarge" style="background-color:rgb(15, 86, 158); color: white;">
+                    <b>Load</b>
+                </button>
+            </form>
+        </div>
+
+        <div class="canvas-column w3-container w3-cell w3-mobile">
+            <p>Content will be displayed here</p><br>
+            <div class="w3-container w3-center">        
+                <p hidden id ="showData">Loading...<br><br>
+                    <i class="fa fa-spinner w3-spin" style="font-size:64px"></i>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fetch frames
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/get_containers')
+                .then(response => response.json())
+                .then(data => {
+                    const containerSelect = document.getElementById('containerSelect');
+                    data.forEach(frame => {
+                        const option = document.createElement('option');
+                        option.value = frame;
+                        option.textContent = frame;
+                        containerSelect.appendChild(option); 
+                    });
+                })
+                .catch(error => console.error('Error fetching names of containers:', error));
+        }); 
+        
+        //button pressed 
+        function submitForm(event) {
+            // guardar valor para mostrarlo en el otro html
+            event.preventDefault();
+            const containerFrame = document.getElementById('containerSelect').value;
+            sessionStorage.setItem('containerFrame', containerFrame);
+            // alerta por si no se ha introducido ningun valor en donde hay que elegir un valor
+            if (!containerFrame){
+                alert("Enter sequence!")
+                return;
+            }
+            // enviar datos al backend y cargar el otro html (second.html)
+            var formData = $('#userinfo').serialize();  // Serialize the form data (la secuencia y ya)
+            $.ajax({ // ajax --> esto es un metodo asincrono
+                url: '/get_visualization',
+                method: 'POST',
+                data: formData,  // Send the form data
+                success: function(response) {
+                    window.location.href = response.redirect_url; //window.location.href="./static/second.html"
+                },
+                error: function(error) {
+                    console.error("Error: ", error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

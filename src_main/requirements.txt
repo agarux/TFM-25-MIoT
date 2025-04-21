@@ -1,0 +1,6 @@
+cv2
+open3d
+numpy
+pybase64
+paho-mqtt-client
+azure-storage-blob
