@@ -5,3 +5,14 @@ Segmentation and interactive visualization of a sequence recorded by depth camer
 - Storage: Azure
   
 For more information see README.md files of each subsystem
+
+## Create a virtual environment and install dependencies 
+```python
+python -m venv name_of_environment 
+source name_of_environment/bin/activate
+```
+
+then:
+```bash
+pip install -r requirements.txt
+```
