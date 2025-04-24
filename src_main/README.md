@@ -8,30 +8,32 @@ Structure of this directory:
     - pspnet_r50-d8_512x512_80k_ade20k_20200615_014128-15a8b914.pth
 ## Installation 
 ### Docker image
-    - pull image 
-    - run image
+```python
+docker pull anagarridoupm/tfm25:server
+docker run -d --name name_of_container anagarridoupm/tfm25:server
+```
   
 ### Run in local 
 Segmentator:
-- 1. Create a virtual environment 
-- 2. Install prerequisites
+1. Create a virtual environment 
+2. Install prerequisites
 ```python
 pip install torch
 ```
-- 3. Install MMSegmentation
+3. Install MMSegmentation
 ```python
 pip install -U openmim
-mim install mmengine
-mim install "mmcv>=2.0.0"
-pip install "mmsegmentation>=1.0.0"
+mim install "mmengine==0.10.5"
+mim install "mmcv==2.1.0"
+pip install "mmsegmentation==1.2.2"
 ```
-- 4. Install rest of dependencies
+4. Install rest of dependencies
 ```python
 pip install -r requirements.txt
 ```
 
 ## Launch the script
-Under this directory (src_main_cpu):
+Under this directory (src_main):
 
 This script can be launched on CPU platforms, hence, high capacity is needed (the best is GPU)
 ```python
