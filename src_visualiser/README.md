@@ -4,13 +4,13 @@
 
 ## Launch the app
 
-run the command:
+Run the command:
 
 ```bash
 python3 app.py 
 ```
 
-or pull the image 
+Or pull the image 
 
 ```python
 docker pull anagarridoupm/tfm25:webapp

@@ -102,7 +102,12 @@ def build_publish_encoded_msg(client, camera_name, k, color_name, encoded_color_
 
 
 # PARAMETER: elegir DIEZMADO!!! 
-def process_frames_of_a_camera(client, k_dict, camera_name_path, dataset_id, container_name, total_cameras): 
+def process_frames_of_a_camera(client, k_dict, camera_name_path, dataset_id, container_name, total_cameras, downsample_factor): 
+    if downsample_factor == "":
+        factor = 3
+    else:
+        factor = int(downsample_factor)
+
     camera_name = os.path.basename(camera_name_path) # 0004422112
     logger.info(f"Sending all frames of camera {camera_name} INIT")
 
@@ -112,11 +117,11 @@ def process_frames_of_a_camera(client, k_dict, camera_name_path, dataset_id, con
         if 'color' in os.path.basename(dir):
             path_color = dir
             color_frames = sorted(f for f in os.listdir(dir) if f.startswith(f"{camera_name}_color_"))
-            color_frames = color_frames[::20]  # diezmado: 1 de cada X (X=20)
+            color_frames = color_frames[::factor]  # diezmado: 1 de cada factor (default = 3)
         if 'depth' in os.path.basename(dir):
             path_depth = dir
             depth_frames = sorted(f for f in os.listdir(dir) if f.startswith(f"{camera_name}_depth_"))
-            depth_frames = depth_frames[::20]  # diezmado: 1 de cada X 
+            depth_frames = depth_frames[::factor]  # diezmado: 1 de cada factor 
 
     if isinstance(k_dict, dict): # if k_dict es un dicc o lista 
         k_list = k_dict[camera_name]
@@ -132,7 +137,7 @@ def process_frames_of_a_camera(client, k_dict, camera_name_path, dataset_id, con
     
 # Function to control the flow and send frames and files 
 # nota: base_directory = data/cameras
-def start_cam_simulation(client, base_directory, dataset_id, container_name, total_cameras, send_freq = 3):
+def start_cam_simulation(client, base_directory, dataset_id, container_name, total_cameras, downsample_factor, send_freq = 3):
     exit_sim = False # ESC
     filepath = 'cam_params.json'
     k_dict = create_k_dict_by_camera(filepath)
@@ -141,7 +146,7 @@ def start_cam_simulation(client, base_directory, dataset_id, container_name, tot
             camera_name_directories = [os.path.join(base_directory, d) for d in os.listdir(base_directory) if os.path.isdir(os.path.join(base_directory, d))]
             threads = []  
             for cam_name_dir in camera_name_directories: 
-                thread = threading.Thread(target=process_frames_of_a_camera, args=(client, k_dict, cam_name_dir, dataset_id, container_name, total_cameras))
+                thread = threading.Thread(target=process_frames_of_a_camera, args=(client, k_dict, cam_name_dir, dataset_id, container_name, total_cameras, downsample_factor))
                 threads.append(thread)
                 thread.start()
                 time.sleep(0.1) 
@@ -171,7 +176,9 @@ def get_sequence_name():
     container_name = input()
     logger.info("Please enter number of cameras used:")
     total_cameras = input()
-    return container_name, total_cameras
+    logger.info("Please enter downsampling factor or skip (press ENTER):")
+    downsample_factor = input()
+    return container_name, total_cameras, downsample_factor
 
 # MAIN 
 if __name__ == "__main__":
@@ -195,7 +202,7 @@ if __name__ == "__main__":
         logger.info("Connected to HiveMQ Cloud MQTT.")
         base_directory = './data/first8_frames/'
         dataset_id = 1 # no quitar (recycling mikel scripts - point clouds)
-        container_name, total_cameras = get_sequence_name()
+        container_name, total_cameras, downsample_factor = get_sequence_name()
         x = input("Press ENTER to start") 
-        start_cam_simulation(client, base_directory, dataset_id, container_name, total_cameras, send_freq=SEND_FREQUENCY) # send frames
+        start_cam_simulation(client, base_directory, dataset_id, container_name, total_cameras, downsample_factor, send_freq=SEND_FREQUENCY) # send frames
         logger.info("Simulation ended")

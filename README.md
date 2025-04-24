@@ -1,8 +1,8 @@
 # TFM 25 MIoT
 Segmentation and interactive visualization of a sequence recorded by depth cameras (these also include rgb information) within an IoT framework.<br>
-- PCommunication protocol: MQTT
+- Communication protocol: MQTT
 - Segmentator: [MMSegmentation](https://github.com/open-mmlab) of OpenMMLab.
-- Storage: Azure
+- Storage: [Microsoft Azure](https://azure.microsoft.com/en-us/)
   
 For more information see README.md files of each subsystem
 

@@ -1,8 +1,6 @@
 # Source --> https://github.com/mikeligUPM/tfm_edgecloud_registrator/tree/main
 #        --> mmsegmentation # Copyright (c) OpenMMLab. All rights reserved.
 
-# Script CPU --> repartir en maquina(s) virtual(es)
-
 import base64
 import json
 import threading
@@ -112,27 +110,31 @@ def process_frames(msg_frames_list, num_frame, container_name, K):
         # save segmented images
         seg_color_array.append(color_img)
         seg_depth_array.append(profun)
-    
+    '''
     # chekipoins - BORRAR
     print(f"Size of the array of segmented color images: {len(seg_color_array)}") 
     print(f"Size of the array of segmented depth images: {len(seg_depth_array)}")
-    
+    '''
     i = 0
     #* SECOND: create simple 1pc for 1frame ----------------------------------------------------------------
     # TESTING, in real: delete save_and_upload_pcd
     for color_seg, depth_seg in zip(seg_color_array, seg_depth_array):
         i = i+1
         pc = create_pc_from_enc_data(color_seg, depth_seg, K, target_ds)
+        '''
         # chekipoins - BORRAR
         #save_and_upload_pcd(pc, f"simple_pc_camera_{i}_{num_frame}.ply", container_name)
+        '''
         if pc is None:
             logger.error(f"Error creating point cloud for frame {num_frame} of camera {i}")
             continue
         logger.info(f"[TS] Frame [{num_frame}] PCD created for camera {i}")
         pcd_list.append(pc)
 
+    '''
     # chekipoins - BORRAR
     print(f"Size of the array of simple point clouds: {len(pcd_list)}") 
+    '''
 
     #* THIRD: ICP algorithm - fusion
     final_fused_point_cloud = icp_p2p_registration_ransac(pcd_list, target_ds)

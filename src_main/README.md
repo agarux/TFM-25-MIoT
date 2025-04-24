@@ -6,8 +6,10 @@ Structure of this directory:
 - /segmentation: directory that contains the trained model and the configurations of the model, these files can be downloaded through OpenMMLab [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) repository  or through this [link](https://upm365-my.sharepoint.com/:f:/g/personal/ana_garrido_ruiz_upm_es/EvsnokulLThAgDA6TXpbCd0BygPWUOGvywydhiqa7Cmq-A?e=ndKLzm) the files are: 
     - pspnet_r50-d8_4xb4-80k_ade20k-512x512.py
     - pspnet_r50-d8_512x512_80k_ade20k_20200615_014128-15a8b914.pth
+  
 ## Installation 
 ### Docker image
+If not GPU, error 
 ```python
 docker pull anagarridoupm/tfm25:server
 docker run -d --name name_of_container anagarridoupm/tfm25:server

@@ -1,6 +1,3 @@
-logging
-pybase64
-threaded
 paho-mqtt
 numpy
 open3d

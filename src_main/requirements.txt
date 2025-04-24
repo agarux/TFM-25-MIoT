@@ -1,6 +1,8 @@
-cv2
-open3d
-numpy
+regex
+ftfy
 pybase64
-paho-mqtt-client
+numpy
+opencv-python
+open3d
+paho-mqtt
 azure-storage-blob
