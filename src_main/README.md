@@ -14,6 +14,12 @@ If not GPU, error
 docker pull anagarridoupm/tfm25:server
 docker run -d --name name_of_container anagarridoupm/tfm25:server
 ```
+
+CPU 
+```python
+docker pull anagarridoupm/tfm25:servercpu
+docker run -d --name name_of_container anagarridoupm/tfm25:servercpu
+```
   
 ### Run in local 
 Segmentator:
@@ -47,7 +53,7 @@ On GPU platforms. By default it chooses the device 0
 python3 main_mqtt_handler_gpu.py
 ```
 
-to choose a defined device run:
+To choose a defined device run:
 ```python
 CUDA_VISIBLE_DEVICES=yourCUDAnumber python3 main_mqtt_handler_gpu.py
 ```
