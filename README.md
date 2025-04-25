@@ -17,9 +17,10 @@ then:
 pip install -r requirements.txt
 ```
 
-### docker installation (notes for docker installation in AzureVM)
+### Docker installation (notes for docker installation in AzureVM)
 Write line by line (or create a file.sh) in az terminal 
- 
+
+```bash
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -28,4 +29,4 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 sudo usermod -aG docker $USER
-
+```
