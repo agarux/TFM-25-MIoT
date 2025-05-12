@@ -19,7 +19,6 @@ def download_blob (blob_client, file_path, chosen_container):
         download_file.readinto(f)
     return file_path
 
-# This function only sends the path of one frame. quien llama a esta funcion es SECOND.HTML
 @app.route('/download_ply/<filename>')
 def download_ply(filename):
     file_path = os.path.join(current_folder, filename)

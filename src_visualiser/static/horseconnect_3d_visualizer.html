@@ -2,65 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Viewer</title>
-  <link rel="icon" type="image/svg+xml" href="static/logo.svg" />
-  <link rel="stylesheet" href="static/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>HorseConnect 3D Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="icon" type="image/svg+xml" href="static/favicon.ico" />
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/loaders/PLYLoader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/controls/OrbitControls.js"></script>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; height: 100vh; }
+    .sidebar { width: 220px; background-color: #0d7b61; color: white; display: flex; flex-direction: column; justify-content: space-between; position: fixed; height: 100vh; }
+    .sidebar img { max-height: 100px; margin: 20px auto; display: block; }
+    .sidebar nav { display: flex; flex-direction: column; padding: 10px; }
+    .sidebar button { background: none; border: none; color: white; padding: 12px; text-align: left; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+    .sidebar button:hover, .sidebar button.active { background-color: #189273; }
+    .sidebar footer { text-align: center; padding: 10px; font-size: 14px; }
+    .main { margin-left: 240px; flex-grow: 1; padding: 20px; overflow-y: auto; }
+    .tabs { margin: 20px 0; }
+    .tab-button { padding: 10px; margin: 5px; background-color: #0d7b61; color: white; border: none; cursor: pointer; }
+    .tab-button.active { background-color: #189273; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    #loadingOverlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.8); display: flex; justify-content: center; align-items: center; font-size: 24px; z-index: 9999; display: none; }
+    #threejs-container { width: 100%; height: 500px; margin-top: 20px; background: #eaeaea; }
+    .slider-control { margin: 10px 0; }
+    .slider-control label { display: block; font-weight: bold; margin-bottom: 5px; }
+    .slider-control input { width: 100%; }
+    #playToggleBtn { background-color: #0d7b61; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 10px; margin-top: 20px; }
+  </style>
 </head>
 <body>
-  <div id="loadingSpinner" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; font-size: 40px; color: #555;">
-    <i class="fa fa-spinner fa-spin"></i>
-  </div>
+  <div id="loadingOverlay">Loading...</div>
   <div class="sidebar">
     <div>
-      <img src="static/LogoWeb.png" alt="Logo" />
+      <img src="static/logo.png" alt="Logo" />
       <nav>
-        <button id="btnPointClouds" class="active" onclick="switchSection('viewer')">Sequences</button>
-        <button id="btnInformation" onclick="switchSection('info')">Information</button>
+        <button id="btnHorses" class="active">Sequences</button>
       </nav>
     </div>
-    <footer>&copy; Jul 2025 MIoT</footer>
+    <footer>&copy; 2025 MIoT GROUP 03</footer>
   </div>
 
   <div class="main">
-    <div class="title-container"> 
-        <h2 id="sectionTitle">3D Sequence Viewer</h2>
-    </div>    
-    <div id="viewerControls">
-        <div class="viewer-grid">
-            <!-- Fila 1 -->
-            <div class="top-controls">
-                <div class="sliders-column">
-                    <div class="slider-control">
-                        <label for="pointSizeSlider">Point Size:</label>
-                        <input type="range" id="pointSizeSlider" min="0.005" max="0.2" step="0.005" value="0.03" />
-                        <span id="pointSizeValue">0.03</span>
-                    </div>
-                    <div class="slider-control">
-                        <label for="fpsSlider">Frame Rate (FPS):</label>
-                        <input type="range" id="fpsSlider" min="1" max="60" step="1" value="30" />
-                        <span id="fpsValue">30</span>
-                    </div>
-                </div>
-                <div class="play-button-column">
-                    <button id="playToggleBtn">Pause</button>
-                </div>
-            </div>
-          
-            <!-- Fila 2 -->
-            <div class="bottom-viewer">
-                <div id="sequenceTabs" class="tabs-vertical"></div>
-                <div id="threejs-container"></div>
-            </div>
-        </div>          
+    <h2 id="sectionTitle">3D Sequence Viewer</h2>
+    <div class="slider-control">
+      <label for="pointSizeSlider">Point Size:</label>
+      <input type="range" id="pointSizeSlider" min="0.005" max="0.2" step="0.005" value="0.03" />
+      <span id="pointSizeValue">0.03</span>
     </div>
-
-    <div id="infoContent" style="display: none;">
-      <p>Hola</p>
+    <div class="slider-control">
+      <label for="fpsSlider">Frame Rate (FPS):</label>
+      <input type="range" id="fpsSlider" min="1" max="60" step="1" value="30" />
+      <span id="fpsValue">30</span>
     </div>
+    <button id="playToggleBtn">Play</button>
+    <div class="tabs" id="sequenceTabs"></div>
+    <div id="threejs-container"></div>
   </div>
 
   <script>
@@ -68,29 +65,11 @@
     let pointSize = 0.03;
     let fps = 30;
     let frameDelay = 1000 / fps;
-    let isPlaying = true;
+    let isPlaying = false;
     let frameIndex = 0;
     let pointClouds = [];
     let frameNames = [];
     let scene, camera, renderer, controls;
-    let lastRender = performance.now();
-
-    function switchSection(section) {
-      document.getElementById("btnPointClouds").classList.remove("active");
-      document.getElementById("btnInformation").classList.remove("active");
-
-      if (section === "viewer") {
-        document.getElementById("btnPointClouds").classList.add("active");
-        document.getElementById("sectionTitle").innerText = "3D Sequence Viewer";
-        document.getElementById("viewerControls").style.display = "block";
-        document.getElementById("infoContent").style.display = "none";
-      } else {
-        document.getElementById("btnInformation").classList.add("active");
-        document.getElementById("sectionTitle").innerText = "Information";
-        document.getElementById("viewerControls").style.display = "none";
-        document.getElementById("infoContent").style.display = "block";
-      }
-    }
 
     function setup3DScene() {
       const container = document.getElementById("threejs-container");
@@ -131,17 +110,8 @@
       pointClouds[frameIndex].visible = true;
     }
 
-    function clearPreviousFrames() {
-      pointClouds.forEach(pc => {
-        scene.remove(pc);
-        pc.geometry.dispose();
-        pc.material.dispose();
-      });
-      pointClouds = [];
-    }
-
     function preloadFrames(callback) {
-      clearPreviousFrames();
+      pointClouds = [];
       const loader = new THREE.PLYLoader();
       let loaded = 0;
       frameNames.forEach((file, i) => {
@@ -175,11 +145,7 @@
     }
 
     function selectSequence(name) {
-        document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
-        [...document.querySelectorAll(".tab-button")].find(btn => btn.innerText === name)?.classList.add("active");
-        
       currentSequence = name;
-      document.getElementById("loadingSpinner").style.display = "block";
       fetch("/get_visualization", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -191,9 +157,8 @@
             frameNames = data;
             frameIndex = 0;
             preloadFrames(() => {
-              if (pointClouds.length) pointClouds[0].visible = true;
+              pointClouds[0].visible = true;
               console.log("Frames ready");
-              document.getElementById("loadingSpinner").style.display = "none";
             });
           });
       });
@@ -216,6 +181,7 @@
       document.getElementById("playToggleBtn").textContent = isPlaying ? "Pause" : "Play";
     };
 
+    let lastRender = performance.now();
     setup3DScene();
     loadSequences();
   </script>
