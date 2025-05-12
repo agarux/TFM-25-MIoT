@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3D Visualiser</title>
+  <link rel="icon" type="image/svg+xml" href="static/favicon.ico" /> <!-- TAB ICON -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/loaders/PLYLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/controls/OrbitControls.js"></script>
+  <style>
+    /* el fondo */
+    body { 
+        margin: 0; 
+        font-family: Arial, sans-serif; 
+        background-color: #f4f4f4; 
+        display: flex; 
+        height: 100vh; 
+    }
+    /* el menu */
+    .sidebar { 
+        width: 220px; 
+        background-color: #0f569e; 
+        color: white; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between; 
+        position: fixed; 
+        height: 100vh; 
+    }
+    .sidebar img { 
+        max-height: 100px; 
+        margin: 20px auto; 
+        display: block; 
+    }
+    .sidebar nav { 
+        display: flex; 
+        flex-direction: column; 
+        padding: 10px; 
+    }
+    .sidebar button { 
+        background: none; 
+        border: none; 
+        color: white; 
+        padding: 12px; 
+        text-align: left; 
+        font-size: 16px; 
+        cursor: pointer; 
+        transition: background 0.3s; 
+    }
+    .sidebar button:hover, .sidebar button.active { 
+        background-color: navy; 
+    }
+    .sidebar footer { 
+        text-align: center; 
+        padding: 5px; 
+        font-size: 14px; 
+    }
+    /* titulo de cada seccion */
+    .title-container {
+        text-align: left; 
+        padding: 5px; 
+        font-size: 18px; 
+        color: white;
+        background-color: #0f569e;    
+    }
+
+    .main { 
+        margin-left: 220px; 
+        flex-grow: 1; 
+        padding: 5px; 
+        overflow-y: auto; 
+    }
+    /* pestañitas para ver cada secuencia*/ 
+    .tabs { 
+        margin: 20px 0; 
+    }
+    .tab-button { 
+        padding: 10px; 
+        margin: 5px; 
+        background-color: #0f569e; 
+        color: white; 
+        border: none; 
+        cursor: pointer; 
+    }
+    .tab-button.active { 
+        background-color: navy; 
+    }
+    .tab-content { 
+        display: none; 
+    }
+    .tab-content.active { 
+        display: block; 
+    }
+ 
+
+    th, td { 
+        padding: 8px; 
+        border: 1px solid #ddd; 
+    }
+
+    th { 
+        background-color: #0d7b61; 
+        color: white; 
+    }
+
+    .nav-buttons { 
+        margin: 20px 0; 
+    }
+
+    .nav-buttons button { 
+        background-color: #0f569e; 
+        color: white; 
+        padding: 10px 20px; 
+        border: none; 
+        cursor: pointer; 
+        font-size: 16px; 
+        border-radius: 25px; 
+    }
+
+    .nav-buttons button:hover { 
+        background-color: navy;
+    }
+    /* pagina mientras se carga la imagen */
+    #loadingOverlay { 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        background: rgba(255, 255, 255, 0.8); 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        font-size: 24px; 
+        z-index: 9999; 
+        display: none; 
+    }
+    /* color de los sliders */ 
+    input[type=range] { 
+        width: 150px;
+        accent-color: #0f569e;
+    }
+  </style>
+</head>
+
+<body> 
+    <!-- Main structure to change between dashboards (DATA/INFO) -->
+    <div id="loadingOverlay">Loading...</div>
+    <div class="sidebar">
+        <div>
+            <!--<img src="static/logo.png" alt="Logo" />-->
+            <nav>
+                <button id="btnPointClouds" class="active" onclick="switchSection('PointClouds')">Dashboard</button>
+                <button id="btnInfo" onclick="switchSection('Information')">Information</button>
+            </nav>
+        </div>
+        <footer>&copy; JUL2025 MIoT-TFM</footer>
+    </div>
+
+    <div class="main">
+        <div class="title-container">
+            <h2 id="sectionTitle">Point clouds dashboard</h2>
+        </div>
+    
+        <!-- PONER slider para POINT SIZE -->
+        <p>
+            <label for="pointSizeSlider">Point size:</label><br>
+            <input type="range" class="slider" id="pointSizeSlider" min="0.005" max="0.2" step="0.005" value="0.03">
+            <br>Value: <span id="pointSizeValue">0.03</span>
+        </p>
+        <!-- PONER slider para FRAME RATE -->
+        <p>
+            <label for="fpsRateSlider">FPS:</label><br>
+            <input type="range" id="fpsRateSlider" min="1" max="60" step="1" value="30">
+            <br>Value: <span id="pointRateValue">30</span>
+        </p>
+        <!-- PONER un BOTON DE PLAY/PAUSE -->
+        <div class="nav-buttons">
+            <button id="playpausebtn" onclick="">Play</button>
+            <!-- si se le da al boton play, otra vez, pause, otra vez, play -->
+
+        </div>
+        <div class="tabs" id="sequenceTabs"></div>
+        <div id="horseContents"></div>
+        <div id="threejs-container"></div>
+    </div>
+
+    <script>      
+        // once the web page is loaded, the section that is rendered and showed is PointClouds
+        let currentSection = "PointClouds"; 
+        const sequenceTabs = document.getElementById("sequenceTabs");
+        const sequenceContent = document.getElementById("threejs-container");
+        const loadingOverlay = document.getElementById("loadingOverlay");
+        
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+        
+        function switchSection(section) {
+            currentSection = section;
+            document.getElementById("btnPointCloud").classList.remove("active");
+            document.getElementById("btnInfo").classList.remove("active");
+            document.getElementById(`btn${capitalize(section)}`).classList.add("active");
+            document.getElementById("sectionTitle").innerText =
+                section === "PointClouds" ? "Point clouds dashboard" : "Information";
+            loadData();
+        }
+
+        function loadData() {
+            loadingOverlay.style.display = "flex";
+            fetch('/get_containers')
+                .then(response => response.json())
+                .then(data => {
+                    loadingOverlay.style.display = "none";
+                    if(!data || Object.keys(data).length === 0) {
+                        alert("No sequences available");
+                        return;
+                    }
+                    console.log(data) // LOG: JSON de nombre de los containers 
+                    if (currentSection == "PointClouds") {
+                        renderPointClouds(data);
+                    } else {
+                        renderInformation();
+                    }
+                })
+                .catch(error => {
+                    loadingOverlay.style.display = "none";
+                    console.error('Error fetching names of containers:', error)
+                });
+        }
+
+        function renderPointClouds(containers) {
+            sequenceTabs.innerHTML = "";
+            sequenceContent.innerHTML = "";
+            
+            containers.forEach((containerName, index) => {
+                if (!containerName) return;
+                console.log(containerName);
+                console.log(index);
+
+                const button = document.createElement("button");
+                button.className = "tab-button";
+                button.innerText = containerName; // Use the string like "sequence1"
+                button.onclick = () => showTab(index);
+                sequenceTabs.appendChild(button);
+            });      
+        }
+
+        function renderInformation () {
+            sequenceTabs.innerHTML = "";
+            sequenceContent.innerHTML = "";
+            const container = document.createElement("div");
+            container.className = "tab-content active";
+
+            container.innerHTML = `
+                <h3>Stable - Temperature, Humidity, and Pressure</h3>
+                <div class="container">
+                    <p>
+                        Hola caracola <br>
+                        Hablar de las pc <br>
+                        mi nombre <br>
+                        año <br>
+                    </p>
+                </div>
+            `;
+            sequenceContent.appendChild(container)       
+        }
+
+        // Tab de cada secuencia 
+        function showTab(id) {
+            document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
+            document.querySelectorAll(".tab-content").forEach(div => div.classList.remove("active"));
+            document.getElementById(`content-${id}`)?.classList.add("active");
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

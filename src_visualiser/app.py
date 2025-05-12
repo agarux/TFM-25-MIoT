@@ -66,7 +66,7 @@ def get_containers():
 # Ruta para servir la página MAIN HTML 
 @app.route('/')
 def index():
-    return send_from_directory('static', 'index.html')
+    return send_from_directory('static', 'layout.html')
 
 # MAIN
 if __name__ == '__main__':
