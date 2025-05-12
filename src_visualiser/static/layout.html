@@ -192,19 +192,17 @@
         const sequenceContent = document.getElementById("threejs-container");
         const loadingOverlay = document.getElementById("loadingOverlay");
         
-        function capitalize(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
-        }
+       
         
         function switchSection(section) {
             currentSection = section;
-            document.getElementById("btnPointCloud").classList.remove("active");
+            document.getElementById("btnPointClouds").classList.remove("active");
             document.getElementById("btnInfo").classList.remove("active");
-            document.getElementById(`btn${capitalize(section)}`).classList.add("active");
             document.getElementById("sectionTitle").innerText =
                 section === "PointClouds" ? "Point clouds dashboard" : "Information";
             loadData();
         }
+        
 
         function loadData() {
             loadingOverlay.style.display = "flex";
