@@ -44,12 +44,47 @@
                 <div id="threejs-container"></div>  
             </div>  
         </div>
-        
         <!-- Otro layout - por completar contenido  -->
-        <div id="infoContent" style="display: none;">
-        <p>Hola</p>
+        <div id="infoContent" style="display: none; max-height: 100vh; overflow-y: auto; padding: 20px;">
+            <p>
+                <h2> Basic description of the web application</h2>
+                <p><br>
+                    This web application serves as a tool for visualising the captured and processed secene. This tool retrives data directly from Azure Blob Storage and renders different tabs depending on the number of containers available. Once the desired sequence is downloaded the user can interat with it for a better visualization. <br>
+                    The user can: <br> 
+                    <ul list-style-type="square">
+                        <li>PLAY and PAUSE the scene</li>
+                        <li>Move and rotate the point cloud</li>
+                        <li>Zoom in and zoom out</li>
+                    </ul>
+                </p>
+                <h2> Algorithm to merge different point clouds</h2>
+                <h3> ICP Iteration Closest Point</h3>
+                <p>
+                    <ul list-style-type="square">
+                        <li>For each point in the source point cloud, the closest point in the target point cloud is found.</li>
+                        <li>The combination of rotation and translation is estimated using a point-to-point metric
+                            distance minimisation technique using the root mean square that best aligns each source
+                            point with its match found in the previous step.</li>
+                        <li>The source points are transformed using the obtained transformation.</li>
+                        <li>The entire process is iterated until all points are aligned.</li>
+                    </ul>
+                    <br> 
+                    The next image sequence ilustrates this pipeline. <br>
+                    
+                        <div class="gallery" style="text-align: center;">
+                            <img src="static/animation.gif" alt="el mono iterativo" width="600" height="400">
+                            <br><br>
+                            <div class="desc"><a href="https://pcl.readthedocs.io/projects/tutorials/en/pcl-1.12.0/interactive_icp.html">&copy; PCL</a></div>
+                        </div>
+                        <br>
+                    <div class="textoCENTRO">
+                        Ana Garrido Ruiz - TFM
+                    </div>
+                </p>
+            </p>
         </div>
     </div>
+    
 
     <script>
         let currentSequence = null;

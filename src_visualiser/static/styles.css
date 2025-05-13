@@ -70,6 +70,7 @@ body {
     margin-left: 220px;
     flex-grow: 1;
     padding: 5px;
+    overflow-y: scroll;
 }
 
 /* titulo de cada seccion */
@@ -138,4 +139,23 @@ body {
   /* color de los sliders */ 
 input[type=range] { 
     width: 140px;
+}
+
+/* el otro layout */
+.gallery {
+    display: flex;
+    justify-content: center;
+}
+
+#infoContent {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100vh;
+    flex-grow: 1;
+}
+#infoContent h2, h3 , .gallery{
+    text-align: center;
+}
+#textoCENTRO {
+    text-align: center;
 }
