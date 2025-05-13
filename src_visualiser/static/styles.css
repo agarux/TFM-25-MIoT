@@ -1,0 +1,141 @@
+:root {
+    --main-blue: #00156c;
+    --hover-blue: #afafaf;
+    --main-page: #f4f4f4;
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --text-button-size: 16px;
+    --button-radius: 10px;
+    --padding: 12px;
+    --font-size: 16px;
+    --font-title-size: 20px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--main-page);
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* MENU sequences or info */
+.sidebar {
+    width: 220px;
+    background-color: var(--main-blue);
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    height: 100vh;
+}
+.sidebar img {
+    max-width: 180px;     
+    margin: 60px auto 40px auto;  
+    display: block;
+    height: auto;
+}
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding);
+}
+.sidebar button {
+    background: none;
+    color: var(--text-white);
+    padding: var(--padding);
+    text-align: left;
+    font-size: var(--text-button-size);
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: var(--button-radius);
+    margin-bottom: var(--padding);
+}
+.sidebar button:hover, .sidebar button.active {
+    background-color: var(--hover-blue);
+    color: var(--text-black);
+}
+.sidebar footer {
+    text-align: left;
+    padding: var(--padding);
+    font-size: var(--font-size);
+}
+
+/* Rest of the file (no menu) */
+.main {
+    width: 100%;
+    height: 100vh;
+    margin-left: 220px;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+/* titulo de cada seccion */
+.title-container {
+    text-align: center; 
+    padding: 1px; 
+    font-size: var(--font-title-size); 
+    color: var(--text-white);
+    background-color: var(--main-blue);    
+}
+
+/* structure of main without title container */
+.viewer-grid {
+    display: grid;
+    grid-template-columns: 150px auto;
+    height: calc(100vh - 40px);;
+    gap: 5px;
+}
+
+.tabs-vertical {
+    width: 150px;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-top: 5px;
+}   
+
+.tab-button {
+    padding: 10px;
+    background-color: var(--main-blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+
+.tab-button:hover, .tab-button.active {
+    background-color: var(--hover-blue);
+    color: var(--text-black);
+    border: 2px solid var(--main-blue);
+}
+/* #: it's an ID*/ 
+#threejs-container {
+    width: 100%;
+    height: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: var(--hover-blue);
+}
+
+#playToggleBtn {
+    background-color: var(--main-blue);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+  /* color de los sliders */ 
+input[type=range] { 
+    width: 140px;
+}

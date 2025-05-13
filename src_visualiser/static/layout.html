@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Viewer</title>
+    <link rel="icon" type="image/svg+xml" href="static/logo.svg" />
+    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/loaders/PLYLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="loadingSpinner" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; font-size: 40px; color: #000000;">
+        <i class="fa fa-spinner fa-spin"></i>
+    </div>
+    <div class="sidebar">
+        <div>
+        <img src="static/LogoWeb.png" alt="Logo" />
+        <nav>
+            <button id="btnPointClouds" class="active" onclick="switchSection('viewer')">Sequences</button>
+            <button id="btnInformation" onclick="switchSection('info')">Information</button>
+        </nav>
+        </div>
+        <footer>&copy; Jul 2025 MIoT</footer>
+    </div>
+
+    <div class="main">
+        <div class="title-container"> 
+            <h2 id="sectionTitle">3D Sequence Viewer</h2>
+        </div>    
+        <div id="viewerControls">
+            <div class="viewer-grid">
+                <div>
+                    <br><label for="pointSizeSlider">Point Size:</label><br>
+                        <input type="range" id="pointSizeSlider" min="0.005" max="0.2" step="0.005" value="0.03"/><br>
+                        <span id="pointSizeValue">0.03</span><br><br>
+                        <label for="fpsSlider">Frame Rate (FPS):</label><br>
+                        <input type="range" id="fpsSlider" min="1" max="60" step="1" value="30"/><br>
+                        <span id="fpsValue">30</span><br>
+                    <button id="playToggleBtn">Pause</button> 
+                    <div id="sequenceTabs" class="tabs-vertical"></div>   
+                </div>
+                <div id="threejs-container"></div>  
+            </div>  
+        </div>
+        
+        <!-- Otro layout - por completar contenido  -->
+        <div id="infoContent" style="display: none;">
+        <p>Hola</p>
+        </div>
+    </div>
+
+    <script>
+        let currentSequence = null;
+        let pointSize = 0.03;
+        let fps = 30;
+        let frameDelay = 1000 / fps;
+        let isPlaying = true;
+        let frameIndex = 0;
+        let pointClouds = [];
+        let frameNames = [];
+        let scene, camera, renderer, controls;
+        let lastRender = performance.now();
+
+        function switchSection(section) {
+            document.getElementById("btnPointClouds").classList.remove("active");
+            document.getElementById("btnInformation").classList.remove("active");
+
+            if (section === "viewer") {
+                document.getElementById("btnPointClouds").classList.add("active");
+                document.getElementById("sectionTitle").innerText = "3D Sequence Viewer";
+                document.getElementById("viewerControls").style.display = "block";
+                document.getElementById("infoContent").style.display = "none";
+            } else {
+                document.getElementById("btnInformation").classList.add("active");
+                document.getElementById("sectionTitle").innerText = "Information";
+                document.getElementById("viewerControls").style.display = "none";
+                document.getElementById("infoContent").style.display = "block";
+            }
+        }
+
+        function setup3DScene() {
+            const container = document.getElementById("threejs-container");
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xeaeaea);
+            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 0.5;
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+
+            const light = new THREE.SpotLight(0xffffff);
+            light.position.set(20, 20, 20);
+            scene.add(light);
+            scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+            animate();
+        }
+
+        function animate(timestamp) {
+            requestAnimationFrame(animate);
+            if (isPlaying && frameNames.length && timestamp - lastRender > frameDelay) {
+                showNextFrame();
+                lastRender = timestamp;
+            }
+            renderer.render(scene, camera);
+            controls.update();
+        }
+
+        function showNextFrame() {
+            if (!pointClouds.length) return;
+            pointClouds[frameIndex].visible = false;
+            frameIndex = (frameIndex + 1) % pointClouds.length;
+            pointClouds[frameIndex].visible = true;
+        }
+
+        function clearPreviousFrames() {
+            pointClouds.forEach(pc => {
+                scene.remove(pc);
+                pc.geometry.dispose();
+                pc.material.dispose();
+            });
+            pointClouds = [];
+        }
+
+        function preloadFrames(callback) {
+            clearPreviousFrames();
+            const loader = new THREE.PLYLoader();
+            let loaded = 0;
+            frameNames.forEach((file, i) => {
+                loader.load(`/download_ply/${file}`, geometry => {
+                    const material = new THREE.PointsMaterial({ size: pointSize, vertexColors: true });
+                    const points = new THREE.Points(geometry, material);
+                    points.scale.set(1000, 1000, 1000);
+                    points.rotation.x = Math.PI;
+                    points.visible = false;
+                    scene.add(points);
+                    pointClouds[i] = points;
+                    if (++loaded === frameNames.length) callback();
+                });
+            });
+        }
+
+        function loadSequences() {
+            fetch("/get_containers")
+                .then(r => r.json())
+                .then(data => {
+                    const tabBar = document.getElementById("sequenceTabs");
+                    tabBar.innerHTML = "";
+                    data.forEach(name => {
+                        const btn = document.createElement("button");
+                        btn.className = "tab-button";
+                        btn.innerText = name;
+                        btn.onclick = () => selectSequence(name);
+                        tabBar.appendChild(btn);
+                    });
+                });
+        }
+
+        function selectSequence(name) {
+            document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
+            [...document.querySelectorAll(".tab-button")].find(btn => btn.innerText === name)?.classList.add("active");
+            currentSequence = name;
+            document.getElementById("loadingSpinner").style.display = "block";
+            fetch("/get_visualization", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `container_name=${name}`
+            }).then(() => {
+                fetch("/get_framesURL")
+                .then(r => r.json())
+                .then(data => {
+                    frameNames = data;
+                    frameIndex = 0;
+                    preloadFrames(() => {
+                        if (pointClouds.length) pointClouds[0].visible = true;
+                        console.log("Frames ready");
+                        document.getElementById("loadingSpinner").style.display = "none";
+                    });
+                });
+            });
+        }
+
+        document.getElementById("pointSizeSlider").oninput = e => {
+            pointSize = parseFloat(e.target.value);
+            document.getElementById("pointSizeValue").textContent = pointSize;
+            pointClouds.forEach(pc => { pc.material.size = pointSize; pc.material.needsUpdate = true; });
+        };
+
+        document.getElementById("fpsSlider").oninput = e => {
+            fps = parseInt(e.target.value);
+            document.getElementById("fpsValue").textContent = fps;
+            frameDelay = 1000 / fps;
+        };
+
+        document.getElementById("playToggleBtn").onclick = () => {
+            isPlaying = !isPlaying;
+            document.getElementById("playToggleBtn").textContent = isPlaying ? "Pause" : "Play";
+        };
+
+        setup3DScene();
+        loadSequences();
+    </script>
+</body>
+</html>
