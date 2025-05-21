@@ -26,7 +26,7 @@ USERNAME_S = 'user_server_tfm25'
 PASSWORD_S = 'serverM2425'
 # OpenMMLab - MMSegmentation 
 CONF_FILE = './segmentation/pspnet_r50-d8_4xb4-80k_ade20k-512x512.py' # model PSPNET, dataset: ADE20k
-CHKP_FILE = './segmentation/pspnet_r50-d8_512x512_80k_ade20k_20200615_014128-15a8b914.pth' # the model is already trained by 'them'
+CHKP_FILE = './segmentation/pspnet_r50-d8_512x512_80k_ade20k_20200615_014128-15a8b914.pth' # trained model 
 
 #* Set mmsegmentation model ONLY 1 TIME
 model = init_model(CONF_FILE, CHKP_FILE, device = 'cpu') # MODEL in CPU 
@@ -34,7 +34,7 @@ model = init_model(CONF_FILE, CHKP_FILE, device = 'cpu') # MODEL in CPU
 processed_timestamps = set()
 received_frames_dict = {}
 received_frames_lock = threading.Lock()
-batch_timeout = 120 # seconds, 2 min?!?!?
+batch_timeout = 120 # seconds, 2 min?
 
 #* AUX function - decode files from binary to numpy array, by default BGR 
 def decode_files(color_enc, depth_enc):
@@ -194,14 +194,7 @@ def process_message(msg, total_cameras):
             received_frames_dict[num_frame] = (received_frames_dict[num_frame][0], Timer(batch_timeout, on_batch_timeout, args=[num_frame]))
             received_frames_dict[num_frame][1].start()
 
-## MQTT funs 
-def on_connect(client, userdata, flags, rc, properties=None):
-    if rc == 0:
-        logger.info(f"Connected to HiveMQ Cloud MQTT.")
-        client.subscribe(MQTT_TOPIC_CAM)
-    else:
-        logger.info(f"Connection to MQTT broker failed.")
-
+## MQTT funs
 def on_message(client, userdata, msg): 
     message = json.loads(msg.payload)
     timestamp = message.get('send_ts')
@@ -215,6 +208,13 @@ def on_message(client, userdata, msg):
     
     processed_timestamps.add(timestamp)
     threading.Thread(target=process_message, args=(msg,total_cameras)).start()
+
+def on_connect(client, userdata, flags, rc, properties=None):
+    if rc == 0:
+        logger.info(f"Connected to HiveMQ Cloud MQTT.")
+        client.subscribe(MQTT_TOPIC_CAM)
+    else:
+        logger.info(f"Connection to MQTT broker failed.")
 
 ## MAIN 
 def main():

@@ -10,16 +10,16 @@
 # necesario diezmar!!
 
 import os
-import base64
-import json
 import time
 import threading
 from logger_config import logger
 import paho.mqtt.client as mqtt
 from datetime import datetime, timezone
-import numpy as np
+import json
 import open3d as o3d 
-import random 
+import numpy as np
+import cbor2
+import cv2
 
 # MyhiveMQTT - serverless - 10GB/month - FREE: only 1 cluster at the same time 
 MQTT_BROKER = '7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud'
@@ -64,45 +64,39 @@ def create_k_dict_by_camera(filepath) -> dict:
             k_dict[camera_name] = K.intrinsic_matrix.tolist()
     return k_dict
 
-# Function to encode and transmit files via MQTT msg
-def encode_png_to_base64(file_path):
-    with open(file_path, "rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-    return encoded_string
+# read file and compressed it: OpenCV 
+def read_png(file_path):
+    img_cv = cv2.imread(file_path, cv2.IMREAD_UNCHANGED)
+    encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
+    _, encoded_img = cv2.imencode('.jpg', img_cv, encode_param)
 
-# Calculate size of JSON-encoded payload in bytes
-def get_message_size(payload):
-    return len(json.dumps(payload))
+    return encoded_img.tobytes() 
 
 # Function to construct and send message to broker hosted in HiveMQ
-def build_publish_encoded_msg(client, camera_name, k, color_name, encoded_color_file, depth_name, encoded_depth_file, dataset_id, container_name, total_cameras):
+def build_publish_encoded_msg(client, camera_name, k, color_name, cv_c_img, depth_name, cv_d_img, container_name, total_cameras):
     dt_now = datetime.now(tz=timezone.utc) 
-    send_ts = round(dt_now.timestamp() * 1000) + random.randint(0, 1000) # unicidad del mensaje 
-
+    send_ts = round(dt_now.timestamp() * 1000)
+    
     payload = {
-        "folder_name": camera_name,
         "frame_color_name": color_name,
-        "enc_c": encoded_color_file,
+        "enc_c": cv_c_img,
         "frame_depth_name": depth_name,
-        "enc_d": encoded_depth_file,
+        "enc_d": cv_d_img,
         "K": k,
-        "reg": 0,
-        "ds": dataset_id,
         "send_ts": send_ts, # UTC timestamp
         "container_name": container_name,
         "total_cameras": total_cameras
     }
+    
+    cbor_payload = cbor2.dumps(payload)
+    logger.info(f"Message size CBOR: {len(cbor_payload)} bytes. ENVIADO.")
 
-    # Calculate message size
-    message_size = get_message_size(payload)
-    logger.info(f"Message size: {message_size} bytes. ENVIADO.")
-
-    client.publish(MQTT_TOPIC_CAM, json.dumps(payload), qos=MQTT_QOS) # qos=0 best effort
+    client.publish(MQTT_TOPIC_CAM, cbor_payload, qos=MQTT_QOS)
     logger.info(f"[TS] SEQUENCE: {container_name}. Camera [{camera_name}] sent message to BROKER, color: {color_name}, depth {depth_name}, time {send_ts}")
 
 
 # PARAMETER: elegir DIEZMADO!!! 
-def process_frames_of_a_camera(client, k_dict, camera_name_path, dataset_id, container_name, total_cameras, downsample_factor): 
+def process_frames_of_a_camera(client, k_dict, camera_name_path, container_name, total_cameras, downsample_factor): 
     if downsample_factor == "":
         factor = 3
     else:
@@ -128,16 +122,17 @@ def process_frames_of_a_camera(client, k_dict, camera_name_path, dataset_id, con
     elif isinstance(k_dict, list):
         k_list = k_dict
 
+    # TEST... BORRAR CAMBIAR DESPUES 
     for chosen_color_frame, chosen_depth_frame in zip(sorted(color_frames), sorted(depth_frames)):
-        encoded_color_file = encode_png_to_base64(os.path.join(path_color, chosen_color_frame))
-        encoded_depth_file = encode_png_to_base64(os.path.join(path_depth, chosen_depth_frame))
-        build_publish_encoded_msg(client, camera_name, k_list, chosen_color_frame, encoded_color_file, chosen_depth_frame, encoded_depth_file, dataset_id, container_name, total_cameras)
+        opencv_d = read_png(os.path.join(path_depth, chosen_depth_frame))
+        opencv_c = read_png(os.path.join(path_color, chosen_color_frame))
+        build_publish_encoded_msg(client, camera_name, k_list, chosen_color_frame, opencv_c, chosen_depth_frame, opencv_d, container_name, total_cameras)
     
     logger.info(f"[Sending all frames of camera {camera_name} END")
     
 # Function to control the flow and send frames and files 
 # nota: base_directory = data/cameras
-def start_cam_simulation(client, base_directory, dataset_id, container_name, total_cameras, downsample_factor, send_freq = 3):
+def start_cam_simulation(client, base_directory, container_name, total_cameras, downsample_factor, send_freq = 3):
     exit_sim = False # ESC
     filepath = 'cam_params.json'
     k_dict = create_k_dict_by_camera(filepath)
@@ -146,7 +141,7 @@ def start_cam_simulation(client, base_directory, dataset_id, container_name, tot
             camera_name_directories = [os.path.join(base_directory, d) for d in os.listdir(base_directory) if os.path.isdir(os.path.join(base_directory, d))]
             threads = []  
             for cam_name_dir in camera_name_directories: 
-                thread = threading.Thread(target=process_frames_of_a_camera, args=(client, k_dict, cam_name_dir, dataset_id, container_name, total_cameras, downsample_factor))
+                thread = threading.Thread(target=process_frames_of_a_camera, args=(client, k_dict, cam_name_dir, container_name, total_cameras, downsample_factor))
                 threads.append(thread)
                 thread.start()
                 time.sleep(0.1) 
@@ -171,7 +166,7 @@ def on_connect(client, userdata, flags, rc, properties=None):
 def on_publish(client, userdata, mid, reason_codes=None, properties=None):
     logger.info(f"Message published successfully with MID: {mid}")
 
-def get_sequence_name():
+def get_user_param():
     logger.info("Please enter name of the sequence \n(no spaces, no simbols, only letters and numbers):")
     container_name = input()
     logger.info("Please enter number of cameras used:")
@@ -200,9 +195,9 @@ if __name__ == "__main__":
     else:
         # Starting data publication
         logger.info("Connected to HiveMQ Cloud MQTT.")
-        base_directory = './data/first8_frames/'
-        dataset_id = 1 # no quitar (recycling mikel scripts - point clouds)
-        container_name, total_cameras, downsample_factor = get_sequence_name()
+        base_directory = './data/frames/'
+        dataset_id = 1 # no quitar (recycling mikel scripts - point clouds) --> server module
+        container_name, total_cameras, downsample_factor = get_user_param()
         x = input("Press ENTER to start") 
-        start_cam_simulation(client, base_directory, dataset_id, container_name, total_cameras, downsample_factor, send_freq=SEND_FREQUENCY) # send frames
+        start_cam_simulation(client, base_directory, container_name, total_cameras, downsample_factor, send_freq=SEND_FREQUENCY) # send frames
         logger.info("Simulation ended")
