@@ -65,23 +65,29 @@ def create_k_dict_by_camera(filepath) -> dict:
     return k_dict
 
 # read file and compressed it: OpenCV 
-def read_png(file_path):
-    img_cv = cv2.imread(file_path, cv2.IMREAD_UNCHANGED)
-    encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
-    _, encoded_img = cv2.imencode('.jpg', img_cv, encode_param)
-
-    return encoded_img.tobytes() 
+def read_png(file_path_c, file_path_d):
+    # RGB file
+    img_cv_c = cv2.imread(file_path_c, cv2.IMREAD_UNCHANGED)
+    encode_param = [int(cv2.IMWRITE_PNG_COMPRESSION), 9]
+    _, encoded_c_img = cv2.imencode('.png', img_cv_c, encode_param)
+    # Depth file 
+    img_cv_d = cv2.imread(file_path_d, cv2.IMREAD_UNCHANGED)
+    assert img_cv_d.dtype == np.uint16, "Expected 16-bit depth image"
+    success, encoded_d_img = cv2.imencode('.png', img_cv_d, [int(cv2.IMWRITE_PNG_COMPRESSION), 9])
+    if not success:
+        raise ValueError("Failed to encode PNG")
+    return encoded_c_img.tobytes(), encoded_d_img.tobytes()
 
 # Function to construct and send message to broker hosted in HiveMQ
-def build_publish_encoded_msg(client, camera_name, k, color_name, cv_c_img, depth_name, cv_d_img, container_name, total_cameras):
+def build_publish_encoded_msg(client, camera_name, k, color_name, cv_c_img, depth_name, depth_f, container_name, total_cameras):
     dt_now = datetime.now(tz=timezone.utc) 
     send_ts = round(dt_now.timestamp() * 1000)
     
     payload = {
         "frame_color_name": color_name,
-        "enc_c": cv_c_img,
+        "color_file": cv_c_img,
         "frame_depth_name": depth_name,
-        "enc_d": cv_d_img,
+        "depth_file": depth_f,
         "K": k,
         "send_ts": send_ts, # UTC timestamp
         "container_name": container_name,
@@ -98,7 +104,7 @@ def build_publish_encoded_msg(client, camera_name, k, color_name, cv_c_img, dept
 # PARAMETER: elegir DIEZMADO!!! 
 def process_frames_of_a_camera(client, k_dict, camera_name_path, container_name, total_cameras, downsample_factor): 
     if downsample_factor == "":
-        factor = 3
+        factor = 6
     else:
         factor = int(downsample_factor)
 
@@ -111,9 +117,9 @@ def process_frames_of_a_camera(client, k_dict, camera_name_path, container_name,
         if 'color' in os.path.basename(dir):
             path_color = dir
             color_frames = sorted(f for f in os.listdir(dir) if f.startswith(f"{camera_name}_color_"))
-            color_frames = color_frames[::factor]  # diezmado: 1 de cada factor (default = 3)
+            color_frames = color_frames[::factor]  # diezmado: 1 de cada factor (default = 6)
         if 'depth' in os.path.basename(dir):
-            path_depth = dir
+            path_depth = dirsrc_edgeDevice_sim/data/first8_frames/000740321012
             depth_frames = sorted(f for f in os.listdir(dir) if f.startswith(f"{camera_name}_depth_"))
             depth_frames = depth_frames[::factor]  # diezmado: 1 de cada factor 
 
@@ -122,10 +128,9 @@ def process_frames_of_a_camera(client, k_dict, camera_name_path, container_name,
     elif isinstance(k_dict, list):
         k_list = k_dict
 
-    # TEST... BORRAR CAMBIAR DESPUES 
+    # OpenCV compression 
     for chosen_color_frame, chosen_depth_frame in zip(sorted(color_frames), sorted(depth_frames)):
-        opencv_d = read_png(os.path.join(path_depth, chosen_depth_frame))
-        opencv_c = read_png(os.path.join(path_color, chosen_color_frame))
+        opencv_c, opencv_d = read_png(os.path.join(path_color, chosen_color_frame), os.path.join(path_depth, chosen_depth_frame))
         build_publish_encoded_msg(client, camera_name, k_list, chosen_color_frame, opencv_c, chosen_depth_frame, opencv_d, container_name, total_cameras)
     
     logger.info(f"[Sending all frames of camera {camera_name} END")
@@ -133,6 +138,7 @@ def process_frames_of_a_camera(client, k_dict, camera_name_path, container_name,
 # Function to control the flow and send frames and files 
 # nota: base_directory = data/cameras
 def start_cam_simulation(client, base_directory, container_name, total_cameras, downsample_factor, send_freq = 3):
+    x = input("Press ENTER to start") 
     exit_sim = False # ESC
     filepath = 'cam_params.json'
     k_dict = create_k_dict_by_camera(filepath)
@@ -171,7 +177,7 @@ def get_user_param():
     container_name = input()
     logger.info("Please enter number of cameras used:")
     total_cameras = input()
-    logger.info("Please enter downsampling factor or skip (press ENTER):")
+    logger.info("Please enter downsampling factor or skip (by default 6), press ENTER:")
     downsample_factor = input()
     return container_name, total_cameras, downsample_factor
 
@@ -187,7 +193,6 @@ if __name__ == "__main__":
         client.on_publish = on_publish
 
         client.connect(MQTT_BROKER, MQTT_PORT)
-        time.sleep(4) # wait for connection setup to complete 
 
         client.loop_start()
     except Exception as e:
@@ -198,6 +203,5 @@ if __name__ == "__main__":
         base_directory = './data/frames/'
         dataset_id = 1 # no quitar (recycling mikel scripts - point clouds) --> server module
         container_name, total_cameras, downsample_factor = get_user_param()
-        x = input("Press ENTER to start") 
         start_cam_simulation(client, base_directory, container_name, total_cameras, downsample_factor, send_freq=SEND_FREQUENCY) # send frames
         logger.info("Simulation ended")
