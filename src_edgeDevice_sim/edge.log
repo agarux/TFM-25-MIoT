@@ -1,0 +1,298 @@
+2025-06-03 11:03:09,350 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 11:03:14,257 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 11:03:14,257 - edge_logger - INFO - Please enter name of the sequence 
+(no spaces, no simbols, only letters and numbers):
+2025-06-03 11:03:18,288 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 11:03:22,034 - edge_logger - INFO - Please enter downsampling factor or skip (press ENTER):
+2025-06-03 11:03:25,924 - edge_logger - INFO - Sending all frames of camera 000507922212 INIT
+2025-06-03 11:03:25,963 - edge_logger - INFO - Message size base64: 3858720 bytes. ENVIADO.
+2025-06-03 11:03:25,979 - edge_logger - INFO - [TS] SEQUENCE: testtime. Camera [000507922212] sent message to BROKER, color: 000507922212_color_f0001.png, depth 000507922212_depth_f0001.png, time 1748941406609
+2025-06-03 11:03:25,982 - edge_logger - INFO - [Sending all frames of camera 000507922212 END
+2025-06-03 11:03:26,025 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 11:03:26,043 - edge_logger - INFO - Message size base64: 3607630 bytes. ENVIADO.
+2025-06-03 11:03:26,056 - edge_logger - INFO - [TS] SEQUENCE: testtime. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748941406813
+2025-06-03 11:03:26,057 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 11:03:26,131 - edge_logger - INFO - Sending all frames of camera 000491922212 INIT
+2025-06-03 11:03:26,156 - edge_logger - INFO - Message size base64: 3570535 bytes. ENVIADO.
+2025-06-03 11:03:26,170 - edge_logger - INFO - [TS] SEQUENCE: testtime. Camera [000491922212] sent message to BROKER, color: 000491922212_color_f0001.png, depth 000491922212_depth_f0001.png, time 1748941406285
+2025-06-03 11:03:26,170 - edge_logger - INFO - [Sending all frames of camera 000491922212 END
+2025-06-03 11:03:26,231 - edge_logger - INFO - Sending all frames of camera 000508922212 INIT
+2025-06-03 11:03:26,254 - edge_logger - INFO - Message size base64: 3628001 bytes. ENVIADO.
+2025-06-03 11:03:26,266 - edge_logger - INFO - [TS] SEQUENCE: testtime. Camera [000508922212] sent message to BROKER, color: 000508922212_color_f0001.png, depth 000508922212_depth_f0001.png, time 1748941407086
+2025-06-03 11:03:26,269 - edge_logger - INFO - [Sending all frames of camera 000508922212 END
+2025-06-03 11:03:26,455 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 11:03:26,536 - edge_logger - INFO - Message published successfully with MID: 3
+2025-06-03 11:03:27,309 - edge_logger - INFO - Message published successfully with MID: 4
+2025-06-03 11:03:27,311 - edge_logger - INFO - Message published successfully with MID: 5
+2025-06-03 11:03:27,370 - edge_logger - INFO - Execution time: 1.447902 seconds
+2025-06-03 11:03:40,672 - edge_logger - INFO - Simulation ended
+2025-06-03 11:07:29,157 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 11:07:33,285 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 11:07:33,285 - edge_logger - INFO - Please enter name of the sequence 
+(no spaces, no simbols, only letters and numbers):
+2025-06-03 11:07:43,612 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 11:07:45,805 - edge_logger - INFO - Please enter downsampling factor or skip (press ENTER):
+2025-06-03 11:07:49,711 - edge_logger - INFO - Sending all frames of camera 000507922212 INIT
+2025-06-03 11:07:49,739 - edge_logger - INFO - Message size base64: 3858724 bytes. ENVIADO.
+2025-06-03 11:07:49,757 - edge_logger - INFO - [TS] SEQUENCE: testsdjfalsd. Camera [000507922212] sent message to BROKER, color: 000507922212_color_f0001.png, depth 000507922212_depth_f0001.png, time 1748941669725
+2025-06-03 11:07:49,757 - edge_logger - INFO - [Sending all frames of camera 000507922212 END
+2025-06-03 11:07:49,811 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 11:07:49,829 - edge_logger - INFO - Message size base64: 3607634 bytes. ENVIADO.
+2025-06-03 11:07:49,843 - edge_logger - INFO - [TS] SEQUENCE: testsdjfalsd. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748941669819
+2025-06-03 11:07:49,844 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 11:07:49,915 - edge_logger - INFO - Sending all frames of camera 000491922212 INIT
+2025-06-03 11:07:49,956 - edge_logger - INFO - Message size base64: 3570539 bytes. ENVIADO.
+2025-06-03 11:07:49,969 - edge_logger - INFO - [TS] SEQUENCE: testsdjfalsd. Camera [000491922212] sent message to BROKER, color: 000491922212_color_f0001.png, depth 000491922212_depth_f0001.png, time 1748941669928
+2025-06-03 11:07:49,969 - edge_logger - INFO - [Sending all frames of camera 000491922212 END
+2025-06-03 11:07:50,016 - edge_logger - INFO - Sending all frames of camera 000508922212 INIT
+2025-06-03 11:07:50,040 - edge_logger - INFO - Message size base64: 3628005 bytes. ENVIADO.
+2025-06-03 11:07:50,053 - edge_logger - INFO - [TS] SEQUENCE: testsdjfalsd. Camera [000508922212] sent message to BROKER, color: 000508922212_color_f0001.png, depth 000508922212_depth_f0001.png, time 1748941670027
+2025-06-03 11:07:50,053 - edge_logger - INFO - [Sending all frames of camera 000508922212 END
+2025-06-03 11:07:50,461 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 11:07:51,164 - edge_logger - INFO - Execution time: 1.454148 seconds
+2025-06-03 11:07:52,444 - edge_logger - INFO - Message published successfully with MID: 3
+2025-06-03 11:07:52,445 - edge_logger - INFO - Message published successfully with MID: 4
+2025-06-03 11:07:52,446 - edge_logger - INFO - Message published successfully with MID: 5
+2025-06-03 11:08:05,757 - edge_logger - INFO - Simulation ended
+2025-06-03 11:10:23,576 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 11:10:23,714 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 11:10:23,714 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 11:10:27,338 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 11:10:29,114 - edge_logger - INFO - Please enter downsampling factor or skip (by default 3), press ENTER:
+2025-06-03 11:10:31,853 - edge_logger - INFO - Sending all frames of camera 000507922212 INIT
+2025-06-03 11:10:31,953 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 11:10:32,054 - edge_logger - INFO - Sending all frames of camera 000491922212 INIT
+2025-06-03 11:10:32,154 - edge_logger - INFO - Sending all frames of camera 000508922212 INIT
+2025-06-03 11:10:37,949 - edge_logger - INFO - Message size CBOR: 1777121 bytes. ENVIADO.
+2025-06-03 11:10:37,953 - edge_logger - INFO - [TS] SEQUENCE: testesdt. Camera [000491922212] sent message to BROKER, color: 000491922212_color_f0001.png, depth 000491922212_depth_f0001.png, time 1748941837943
+2025-06-03 11:10:37,954 - edge_logger - INFO - [Sending all frames of camera 000491922212 END
+2025-06-03 11:10:38,528 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 11:10:38,864 - edge_logger - INFO - Message size CBOR: 1784539 bytes. ENVIADO.
+2025-06-03 11:10:38,866 - edge_logger - INFO - [TS] SEQUENCE: testesdt. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748941838862
+2025-06-03 11:10:38,869 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 11:10:38,952 - edge_logger - INFO - Message size CBOR: 1911939 bytes. ENVIADO.
+2025-06-03 11:10:38,953 - edge_logger - INFO - [TS] SEQUENCE: testesdt. Camera [000507922212] sent message to BROKER, color: 000507922212_color_f0001.png, depth 000507922212_depth_f0001.png, time 1748941838950
+2025-06-03 11:10:38,955 - edge_logger - INFO - [Sending all frames of camera 000507922212 END
+2025-06-03 11:10:39,014 - edge_logger - INFO - Message published successfully with MID: 3
+2025-06-03 11:10:39,106 - edge_logger - INFO - Message size CBOR: 1763250 bytes. ENVIADO.
+2025-06-03 11:10:39,107 - edge_logger - INFO - [TS] SEQUENCE: testesdt. Camera [000508922212] sent message to BROKER, color: 000508922212_color_f0001.png, depth 000508922212_depth_f0001.png, time 1748941839105
+2025-06-03 11:10:39,108 - edge_logger - INFO - [Sending all frames of camera 000508922212 END
+2025-06-03 11:10:39,111 - edge_logger - INFO - Message published successfully with MID: 4
+2025-06-03 11:10:39,226 - edge_logger - INFO - Message published successfully with MID: 5
+2025-06-03 11:10:39,987 - edge_logger - INFO - Execution time: 8.136505 seconds
+2025-06-03 11:10:44,603 - edge_logger - INFO - Simulation ended
+2025-06-03 12:01:48,775 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 12:01:48,908 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 12:01:48,908 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 12:02:06,181 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 12:02:08,150 - edge_logger - INFO - Please enter downsampling factor or skip (by default 3), press ENTER:
+2025-06-03 12:02:10,423 - edge_logger - INFO - Sending all frames of camera 000507922212 INIT
+2025-06-03 12:02:10,524 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 12:02:10,625 - edge_logger - INFO - Sending all frames of camera 000491922212 INIT
+2025-06-03 12:02:10,725 - edge_logger - INFO - Sending all frames of camera 000508922212 INIT
+2025-06-03 12:02:16,206 - edge_logger - INFO - [RGB] Mean Square Error: 0.00
+2025-06-03 12:02:16,210 - edge_logger - INFO - [Depth] Mean Square Error: 0.00
+2025-06-03 12:02:16,212 - edge_logger - INFO - Message size CBOR: 1784537 bytes. ENVIADO.
+2025-06-03 12:02:16,213 - edge_logger - INFO - [TS] SEQUENCE: ytfytf. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748944936212
+2025-06-03 12:02:16,218 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 12:02:16,224 - edge_logger - INFO - [RGB] Mean Square Error: 0.00
+2025-06-03 12:02:16,231 - edge_logger - INFO - [Depth] Mean Square Error: 0.00
+2025-06-03 12:02:16,235 - edge_logger - INFO - Message size CBOR: 1777119 bytes. ENVIADO.
+2025-06-03 12:02:16,239 - edge_logger - INFO - [TS] SEQUENCE: ytfytf. Camera [000491922212] sent message to BROKER, color: 000491922212_color_f0001.png, depth 000491922212_depth_f0001.png, time 1748944936233
+2025-06-03 12:02:16,239 - edge_logger - INFO - [Sending all frames of camera 000491922212 END
+2025-06-03 12:02:16,265 - edge_logger - INFO - [RGB] Mean Square Error: 0.00
+2025-06-03 12:02:16,269 - edge_logger - INFO - [Depth] Mean Square Error: 0.00
+2025-06-03 12:02:16,273 - edge_logger - INFO - Message size CBOR: 1911937 bytes. ENVIADO.
+2025-06-03 12:02:16,275 - edge_logger - INFO - [TS] SEQUENCE: ytfytf. Camera [000507922212] sent message to BROKER, color: 000507922212_color_f0001.png, depth 000507922212_depth_f0001.png, time 1748944936272
+2025-06-03 12:02:16,275 - edge_logger - INFO - [Sending all frames of camera 000507922212 END
+2025-06-03 12:02:16,486 - edge_logger - INFO - [RGB] Mean Square Error: 0.00
+2025-06-03 12:02:16,490 - edge_logger - INFO - [Depth] Mean Square Error: 0.00
+2025-06-03 12:02:16,493 - edge_logger - INFO - Message size CBOR: 1763248 bytes. ENVIADO.
+2025-06-03 12:02:16,494 - edge_logger - INFO - [TS] SEQUENCE: ytfytf. Camera [000508922212] sent message to BROKER, color: 000508922212_color_f0001.png, depth 000508922212_depth_f0001.png, time 1748944936492
+2025-06-03 12:02:16,495 - edge_logger - INFO - [Sending all frames of camera 000508922212 END
+2025-06-03 12:02:16,796 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 12:02:16,796 - edge_logger - INFO - Message published successfully with MID: 3
+2025-06-03 12:02:16,797 - edge_logger - INFO - Message published successfully with MID: 4
+2025-06-03 12:02:16,797 - edge_logger - INFO - Message published successfully with MID: 5
+2025-06-03 12:02:17,290 - edge_logger - INFO - Execution time: 6.869649 seconds
+2025-06-03 12:03:10,836 - edge_logger - INFO - Simulation ended
+2025-06-03 12:03:14,398 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 12:03:14,526 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 12:03:14,526 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 12:03:16,468 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 12:03:16,835 - edge_logger - WARNING - Invalid number of cameras. Please enter a valid integer.
+2025-06-03 12:03:16,835 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 12:03:20,851 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 12:03:22,515 - edge_logger - INFO - Please enter downsampling factor or skip (by default 3), press ENTER:
+2025-06-03 12:03:23,493 - edge_logger - INFO - Sending all frames of camera 000507922212 INIT
+2025-06-03 12:03:23,594 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 12:03:23,694 - edge_logger - INFO - Sending all frames of camera 000491922212 INIT
+2025-06-03 12:03:23,796 - edge_logger - INFO - Sending all frames of camera 000508922212 INIT
+2025-06-03 12:03:29,520 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:03:29,524 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:03:29,526 - edge_logger - INFO - Message size CBOR: 1784538 bytes. ENVIADO.
+2025-06-03 12:03:29,528 - edge_logger - INFO - [TS] SEQUENCE: jhgkjhg. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748945009525
+2025-06-03 12:03:29,530 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 12:03:29,552 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:03:29,555 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:03:29,559 - edge_logger - INFO - Message size CBOR: 1763249 bytes. ENVIADO.
+2025-06-03 12:03:29,560 - edge_logger - INFO - [TS] SEQUENCE: jhgkjhg. Camera [000508922212] sent message to BROKER, color: 000508922212_color_f0001.png, depth 000508922212_depth_f0001.png, time 1748945009558
+2025-06-03 12:03:29,560 - edge_logger - INFO - [Sending all frames of camera 000508922212 END
+2025-06-03 12:03:29,635 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:03:29,643 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:03:29,646 - edge_logger - INFO - Message size CBOR: 1911938 bytes. ENVIADO.
+2025-06-03 12:03:29,648 - edge_logger - INFO - [TS] SEQUENCE: jhgkjhg. Camera [000507922212] sent message to BROKER, color: 000507922212_color_f0001.png, depth 000507922212_depth_f0001.png, time 1748945009645
+2025-06-03 12:03:29,648 - edge_logger - INFO - [Sending all frames of camera 000507922212 END
+2025-06-03 12:03:29,717 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:03:29,721 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:03:29,726 - edge_logger - INFO - Message size CBOR: 1777120 bytes. ENVIADO.
+2025-06-03 12:03:29,727 - edge_logger - INFO - [TS] SEQUENCE: jhgkjhg. Camera [000491922212] sent message to BROKER, color: 000491922212_color_f0001.png, depth 000491922212_depth_f0001.png, time 1748945009724
+2025-06-03 12:03:29,728 - edge_logger - INFO - [Sending all frames of camera 000491922212 END
+2025-06-03 12:03:30,061 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 12:03:30,062 - edge_logger - INFO - Message published successfully with MID: 3
+2025-06-03 12:03:30,062 - edge_logger - INFO - Message published successfully with MID: 4
+2025-06-03 12:03:30,063 - edge_logger - INFO - Message published successfully with MID: 5
+2025-06-03 12:03:30,663 - edge_logger - INFO - Execution time: 7.172252 seconds
+2025-06-03 12:07:34,526 - edge_logger - INFO - Simulation ended
+2025-06-03 12:07:38,827 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 12:07:38,958 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 12:07:38,958 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 12:07:41,294 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 12:07:42,334 - edge_logger - INFO - Please enter downsampling factor or skip (by default 3), press ENTER:
+2025-06-03 12:07:44,429 - edge_logger - INFO - Sending all frames of camera 000507922212 INIT
+2025-06-03 12:07:44,530 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 12:07:44,630 - edge_logger - INFO - Sending all frames of camera 000491922212 INIT
+2025-06-03 12:07:44,733 - edge_logger - INFO - Sending all frames of camera 000508922212 INIT
+2025-06-03 12:07:47,268 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:07:47,271 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:07:47,273 - edge_logger - INFO - Message size CBOR: 2103199 bytes. ENVIADO.
+2025-06-03 12:07:47,275 - edge_logger - INFO - [TS] SEQUENCE: tesetse. Camera [000507922212] sent message to BROKER, color: 000507922212_color_f0001.png, depth 000507922212_depth_f0001.png, time 1748945267273
+2025-06-03 12:07:47,277 - edge_logger - INFO - [Sending all frames of camera 000507922212 END
+2025-06-03 12:07:47,396 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:07:47,400 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:07:47,405 - edge_logger - INFO - Message size CBOR: 1962713 bytes. ENVIADO.
+2025-06-03 12:07:47,408 - edge_logger - INFO - [TS] SEQUENCE: tesetse. Camera [000491922212] sent message to BROKER, color: 000491922212_color_f0001.png, depth 000491922212_depth_f0001.png, time 1748945267404
+2025-06-03 12:07:47,408 - edge_logger - INFO - [Sending all frames of camera 000491922212 END
+2025-06-03 12:07:47,417 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:07:47,421 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:07:47,425 - edge_logger - INFO - Message size CBOR: 1972429 bytes. ENVIADO.
+2025-06-03 12:07:47,426 - edge_logger - INFO - [TS] SEQUENCE: tesetse. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748945267423
+2025-06-03 12:07:47,427 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 12:07:47,472 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:07:47,476 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:07:47,480 - edge_logger - INFO - Message size CBOR: 1954017 bytes. ENVIADO.
+2025-06-03 12:07:47,482 - edge_logger - INFO - [TS] SEQUENCE: tesetse. Camera [000508922212] sent message to BROKER, color: 000508922212_color_f0001.png, depth 000508922212_depth_f0001.png, time 1748945267479
+2025-06-03 12:07:47,482 - edge_logger - INFO - [Sending all frames of camera 000508922212 END
+2025-06-03 12:07:47,957 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 12:07:47,957 - edge_logger - INFO - Message published successfully with MID: 3
+2025-06-03 12:07:47,958 - edge_logger - INFO - Message published successfully with MID: 4
+2025-06-03 12:07:47,959 - edge_logger - INFO - Message published successfully with MID: 5
+2025-06-03 12:07:48,298 - edge_logger - INFO - Execution time: 3.869813 seconds
+2025-06-03 12:08:52,061 - edge_logger - INFO - Simulation ended
+2025-06-03 12:08:55,557 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 12:08:55,696 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 12:08:55,696 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 12:09:14,715 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 12:09:18,588 - edge_logger - INFO - Please enter downsampling factor or skip (by default 3), press ENTER:
+2025-06-03 12:09:20,078 - edge_logger - INFO - Sending all frames of camera 000507922212 INIT
+2025-06-03 12:09:20,178 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 12:09:20,279 - edge_logger - INFO - Sending all frames of camera 000491922212 INIT
+2025-06-03 12:09:20,380 - edge_logger - INFO - Sending all frames of camera 000508922212 INIT
+2025-06-03 12:09:22,940 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:09:22,944 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:09:22,947 - edge_logger - INFO - Message size CBOR: 2289093 bytes. ENVIADO.
+2025-06-03 12:09:22,951 - edge_logger - INFO - [TS] SEQUENCE: testaset. Camera [000507922212] sent message to BROKER, color: 000507922212_color_f0001.png, depth 000507922212_depth_f0001.png, time 1748945362946
+2025-06-03 12:09:22,951 - edge_logger - INFO - [Sending all frames of camera 000507922212 END
+2025-06-03 12:09:22,967 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:09:22,970 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:09:22,975 - edge_logger - INFO - Message size CBOR: 2147743 bytes. ENVIADO.
+2025-06-03 12:09:22,977 - edge_logger - INFO - [TS] SEQUENCE: testaset. Camera [000491922212] sent message to BROKER, color: 000491922212_color_f0001.png, depth 000491922212_depth_f0001.png, time 1748945362973
+2025-06-03 12:09:22,977 - edge_logger - INFO - [Sending all frames of camera 000491922212 END
+2025-06-03 12:09:23,002 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:09:23,006 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:09:23,010 - edge_logger - INFO - Message size CBOR: 2157053 bytes. ENVIADO.
+2025-06-03 12:09:23,012 - edge_logger - INFO - [TS] SEQUENCE: testaset. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748945363009
+2025-06-03 12:09:23,012 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 12:09:23,144 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 12:09:23,148 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 12:09:23,152 - edge_logger - INFO - Message size CBOR: 2142149 bytes. ENVIADO.
+2025-06-03 12:09:23,153 - edge_logger - INFO - [TS] SEQUENCE: testaset. Camera [000508922212] sent message to BROKER, color: 000508922212_color_f0001.png, depth 000508922212_depth_f0001.png, time 1748945363151
+2025-06-03 12:09:23,153 - edge_logger - INFO - [Sending all frames of camera 000508922212 END
+2025-06-03 12:09:23,613 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 12:09:23,614 - edge_logger - INFO - Message published successfully with MID: 3
+2025-06-03 12:09:23,614 - edge_logger - INFO - Message published successfully with MID: 4
+2025-06-03 12:09:23,615 - edge_logger - INFO - Message published successfully with MID: 5
+2025-06-03 12:09:23,966 - edge_logger - INFO - Execution time: 3.889530 seconds
+2025-06-03 12:58:52,217 - edge_logger - INFO - Simulation ended
+2025-06-03 13:10:50,270 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 13:10:50,406 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 13:10:50,406 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 13:10:53,899 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 13:10:55,274 - edge_logger - INFO - Please enter downsampling factor or skip (by default 3), press ENTER:
+2025-06-03 13:10:55,933 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 13:11:01,251 - edge_logger - INFO - Execution time: 5.317739 seconds
+2025-06-03 13:11:01,339 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 13:11:01,344 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 13:11:01,345 - edge_logger - INFO - Message size CBOR: 1784539 bytes. ENVIADO.
+2025-06-03 13:11:01,346 - edge_logger - INFO - [TS] SEQUENCE: hfasdafd. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748949061345
+2025-06-03 13:11:01,346 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 13:11:01,954 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 13:11:37,849 - edge_logger - INFO - Simulation ended
+2025-06-03 13:11:49,185 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 13:11:49,320 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 13:11:49,320 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 13:11:50,714 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 13:11:51,417 - edge_logger - INFO - Please enter downsampling factor or skip (by default 3), press ENTER:
+2025-06-03 13:11:52,347 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 13:11:52,638 - edge_logger - INFO - Execution time: 0.290600 seconds
+2025-06-03 13:11:52,728 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 13:11:52,731 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 13:11:52,733 - edge_logger - INFO - Message size CBOR: 2304966 bytes. ENVIADO.
+2025-06-03 13:11:52,733 - edge_logger - INFO - [TS] SEQUENCE: alkjdha. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748949112733
+2025-06-03 13:11:52,735 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 13:11:53,108 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 13:12:02,026 - edge_logger - INFO - Simulation ended
+2025-06-03 13:12:05,593 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-06-03 13:12:05,730 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 13:12:05,730 - edge_logger - INFO - Please enter name of the sequence (no spaces, no symbols, only letters and numbers):
+2025-06-03 13:12:07,802 - edge_logger - INFO - Please enter number of cameras used:
+2025-06-03 13:12:10,041 - edge_logger - INFO - Please enter downsampling factor or skip (by default 3), press ENTER:
+2025-06-03 13:12:11,563 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-06-03 13:12:11,840 - edge_logger - INFO - Execution time: 0.276826 seconds
+2025-06-03 13:12:11,929 - edge_logger - INFO - [RGB] Mean Square Error: 0.0000000000
+2025-06-03 13:12:11,933 - edge_logger - INFO - [Depth] Mean Square Error: 0.0000000000
+2025-06-03 13:12:11,934 - edge_logger - INFO - Message size CBOR: 2304964 bytes. ENVIADO.
+2025-06-03 13:12:11,935 - edge_logger - INFO - [TS] SEQUENCE: sdfsd. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748949131934
+2025-06-03 13:12:11,935 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-06-03 13:12:12,623 - edge_logger - INFO - Message published successfully with MID: 2
+2025-06-03 13:12:18,586 - edge_logger - INFO - Simulation ended

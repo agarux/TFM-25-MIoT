@@ -4,6 +4,10 @@
     - camera: ID of the camera 
     - typeofframe: color or depth
 '''
+
+'''
+
+'''
 import os
 
 # Function to rename multiple files

@@ -83,12 +83,7 @@ def create_k_dict_by_camera(filepath) -> dict:
 
 # TEST COMPROSSIONS 
 def test_png(file_path_c, file_path_d):
-    # RAW DATA 
-    with open(file_path_c, 'rb') as image_file:
-        raw_data_c = image_file.read()
-    with open(file_path_d, 'rb') as image_file:
-        raw_data_d = image_file.read()
-
+    time_start = time.perf_counter()
     # COMPRESSING DATA WITH OPENCV AND THEN BUILD THE MSSG WITH CBOR
     # RGB file
     img_cv_c = cv2.imread(file_path_c, cv2.IMREAD_UNCHANGED)
@@ -96,31 +91,21 @@ def test_png(file_path_c, file_path_d):
     _, cv_c_img = cv2.imencode('.png', img_cv_c, encode_param)
     # Depth file 
     img_cv_d = cv2.imread(file_path_d, cv2.IMREAD_UNCHANGED)
-    print(file_path_c)
-    print(file_path_d)
-    print(img_cv_d.dtype)
     assert img_cv_d.dtype == np.uint16, "Expected 16-bit depth image"
     success, cv_d_img = cv2.imencode('.png', img_cv_d, [int(cv2.IMWRITE_PNG_COMPRESSION), 9])
     if not success:
         raise ValueError("Failed to encode PNG")
-    
-    # DATA ENCODIG - BASE64 - JSON
-    with open(file_path_c, "rb") as image_file:
-        base64_c = base64.b64encode(image_file.read()).decode('utf-8')
-    with open(file_path_d, "rb") as image_file:
-        base64_d = base64.b64encode(image_file.read()).decode('utf-8')
-    return raw_data_c, raw_data_d, cv_c_img.tobytes(), cv_d_img.tobytes(), base64_c, base64_d 
+    time_com = time.perf_counter() - time_start
+
+    print(f"Time to compres files {time_com}")
+
+    return cv_c_img.tobytes(), cv_d_img.tobytes()
 
 # Function to construct and send message to broker hosted in HiveMQ
-def build_publish_encoded_msg(client, camera_name, k, color_name, depth_name, dataset_id, container_name, total_cameras, raw_data_c, raw_data_d, cv_c_img, cv_d_img, base64_c, base64_d):
+def build_publish_encoded_msg(client, camera_name, k, color_name, depth_name, dataset_id, container_name, total_cameras, cv_c_img, cv_d_img):
     dt_now = datetime.now(tz=timezone.utc) 
     send_ts = round(dt_now.timestamp() * 1000) # unicidad del mensaje 
 
-    payload_raw = {
-        "enc_c": raw_data_c,
-        "enc_d": raw_data_d,
-    }
-    
     payload_cbor = {
         "frame_color_name": color_name,
         "enc_c": cv_c_img,
@@ -131,28 +116,6 @@ def build_publish_encoded_msg(client, camera_name, k, color_name, depth_name, da
         "container_name": container_name,
         "total_cameras": total_cameras
     }
-
-    payload_base64 = {
-        "frame_color_name": color_name,
-        "enc_c": base64_c,
-        "frame_depth_name": depth_name,
-        "enc_d": base64_d,
-        "K": k,
-        "send_ts": send_ts, # UTC timestamp
-        "container_name": container_name,
-        "total_cameras": total_cameras
-
-    }
-
-    # Measure and print sizes - RAW separately but now together just to see 
-    total_raw_size = 0
-    logger.info("\n=== RAW data ===")
-    for key, value in payload_raw.items():
-        field_size = get_size(value)
-        total_raw_size += field_size
-        logger.info(f"{key:20}: {field_size} bytes")
-    logger.info("=================")
-    logger.info(f"Estimated total raw size: {total_raw_size} bytes\n")
 
     # Measure and print sizes
     total_cv_size = 0
@@ -165,34 +128,8 @@ def build_publish_encoded_msg(client, camera_name, k, color_name, depth_name, da
     logger.info(f"Message size CV: {total_cv_size} bytes")
     cbor_payload = cbor2.dumps(payload_cbor)
     logger.info(f"Message size CBOR: {len(cbor_payload)} bytes. ENVIADO.\n")
-    #cbor_comppayload = json.dumps(payload_cbor)
-    #logger.info(f"Message size CBOR + raw data: {len(cbor_comppayload)} bytes. ENVIADO.\n")
     
-
-    # Measure and print sizes
-    total_b64_size = 0
-    logger.info("\n=== base64 encoding ===")
-    for key, value in payload_base64.items():
-        field_size = get_size(value)
-        total_b64_size += field_size
-        logger.info(f"{key:20}: {field_size} bytes")
-    logger.info("============================")
-    logger.info(f"Message size CV: {total_b64_size} bytes")
-    json_payload = json.dumps(payload_base64)
-    logger.info(f"Message size JSON: {len(json_payload)} bytes. ENVIADO.\n")
-    cb_payload = cbor2.dumps(payload_base64)
-    logger.info(f"Message size CBOR: {len(cb_payload)} bytes. ENVIADO.\n")
-
-    print("raw")
-    print("por separado")
-    client.publish(MQTT_TOPIC_CAM, raw_data_c, qos=MQTT_QOS)
-    client.publish(MQTT_TOPIC_CAM, raw_data_d, qos=MQTT_QOS)
-    #print("todo junto")
-    #client.publish(MQTT_TOPIC_CAM, payload_raw, qos=MQTT_QOS)
-    print("cbor")
     client.publish(MQTT_TOPIC_CAM, cbor_payload, qos=MQTT_QOS)
-    print("json")
-    client.publish(MQTT_TOPIC_CAM, json_payload, qos=MQTT_QOS)
     logger.info(f"[TS] SEQUENCE: {container_name}. Camera [{camera_name}] sent message to BROKER, color: {color_name}, depth {depth_name}, time {send_ts}")
 
 
@@ -224,8 +161,8 @@ def process_frames_of_a_camera(client, k_dict, camera_name_path, dataset_id, con
         k_list = k_dict
 
     for chosen_color_frame, chosen_depth_frame in zip(sorted(color_frames), sorted(depth_frames)):
-        raw_data_c, raw_data_d, encoded_c_img, encoded_d_img, base64_c, base64_d  = test_png(os.path.join(path_color, chosen_color_frame), os.path.join(path_depth, chosen_depth_frame))
-        build_publish_encoded_msg(client, camera_name, k_list, chosen_color_frame, chosen_depth_frame, dataset_id, container_name, total_cameras, raw_data_c, raw_data_d, encoded_c_img, encoded_d_img, base64_c, base64_d)
+        encoded_c_img, encoded_d_img = test_png(os.path.join(path_color, chosen_color_frame), os.path.join(path_depth, chosen_depth_frame))
+        build_publish_encoded_msg(client, camera_name, k_list, chosen_color_frame, chosen_depth_frame, dataset_id, container_name, total_cameras, encoded_c_img, encoded_d_img)
     
     logger.info(f"[Sending all frames of camera {camera_name} END")
     

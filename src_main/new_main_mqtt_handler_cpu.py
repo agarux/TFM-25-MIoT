@@ -14,6 +14,7 @@ from logger_config import logger # logs
 from helper_funs import get_config
 from blob_handler import save_and_upload_pcd
 import time
+from datetime import datetime, timezone
 
 from registrator_icp_ransac import icp_p2p_registration_ransac
 
@@ -74,6 +75,8 @@ def create_pc_from_enc_data(color_image, depth_image, K, target_ds):
     vox_size, _ = get_config(target_ds)
     logger.debug(f"[TEST] Voxel size: {vox_size}")
     pcd = pcd.voxel_down_sample(voxel_size=vox_size)
+    #se muere el pc
+    #pcd = pcd.voxel_down_sample(0.00001)
     logger.debug(f"PCD len after downsampling {len(pcd.points)}")
     pcd.estimate_normals()
     return pcd
@@ -220,11 +223,16 @@ def process_message(msg, total_cameras):
 
 ## MQTT funs 
 def on_message(client, userdata, msg): 
+    dt_now = datetime.now(tz=timezone.utc) 
+    timestamp_main = round(dt_now.timestamp() * 1000)
+    
     message = cbor2.loads(msg.payload)
     timestamp = message.get('send_ts')
     total_cameras = message.get('total_cameras')
     total_cameras = int(total_cameras)
     logger.info(f"Total cameras = {total_cameras}")
+    
+    logger.info(f"[TIME] Mensaje enviado en {timestamp} llega ahora en {timestamp_main} = {timestamp_main-timestamp}")
     # Timestamp's already received
     if timestamp in processed_timestamps:
         logger.info(f"Timestamp {timestamp} processed. Ignoring...")

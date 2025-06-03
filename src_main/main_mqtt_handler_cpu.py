@@ -1,6 +1,8 @@
 # Source --> https://github.com/mikeligUPM/tfm_edgecloud_registrator/tree/main
 #        --> mmsegmentation # Copyright (c) OpenMMLab. All rights reserved.
 
+# Script CPU --> repartir en maquina(s) virtual(es)
+
 import base64
 import json
 import threading
@@ -15,6 +17,8 @@ from helper_funs import get_config
 from registrator_icp_ransac import icp_p2p_registration_ransac
 from blob_handler import save_and_upload_pcd
 
+from datetime import datetime, timezone
+
 # MyhiveMQTT - serverless - 10GB/month - FREE: only 1 cluster at the same time 
 MQTT_BROKER = '7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud'
 MQTT_PORT = 8883
@@ -26,7 +30,7 @@ USERNAME_S = 'user_server_tfm25'
 PASSWORD_S = 'serverM2425'
 # OpenMMLab - MMSegmentation 
 CONF_FILE = './segmentation/pspnet_r50-d8_4xb4-80k_ade20k-512x512.py' # model PSPNET, dataset: ADE20k
-CHKP_FILE = './segmentation/pspnet_r50-d8_512x512_80k_ade20k_20200615_014128-15a8b914.pth' # trained model 
+CHKP_FILE = './segmentation/pspnet_r50-d8_512x512_80k_ade20k_20200615_014128-15a8b914.pth' # the model is already trained by 'them'
 
 #* Set mmsegmentation model ONLY 1 TIME
 model = init_model(CONF_FILE, CHKP_FILE, device = 'cpu') # MODEL in CPU 
@@ -34,7 +38,7 @@ model = init_model(CONF_FILE, CHKP_FILE, device = 'cpu') # MODEL in CPU
 processed_timestamps = set()
 received_frames_dict = {}
 received_frames_lock = threading.Lock()
-batch_timeout = 120 # seconds, 2 min?
+batch_timeout = 120 # seconds, 2 min?!?!?
 
 #* AUX function - decode files from binary to numpy array, by default BGR 
 def decode_files(color_enc, depth_enc):
@@ -109,30 +113,28 @@ def process_frames(msg_frames_list, num_frame, container_name, K):
         # save segmented images
         seg_color_array.append(color_img)
         seg_depth_array.append(profun)
-    '''
+    
     # chekipoins - BORRAR
     print(f"Size of the array of segmented color images: {len(seg_color_array)}") 
     print(f"Size of the array of segmented depth images: {len(seg_depth_array)}")
-    '''
+    
     i = 0
     #* SECOND: create simple 1pc for 1frame ----------------------------------------------------------------
     # TESTING, in real: delete save_and_upload_pcd
     for color_seg, depth_seg in zip(seg_color_array, seg_depth_array):
         i = i+1
         pc = create_pc_from_enc_data(color_seg, depth_seg, K, target_ds)
-        '''
         # chekipoins - BORRAR
-        save_and_upload_pcd(pc, f"simple_pc_camera_{i}_{num_frame}.ply", container_name)
-        '''
+        #save_and_upload_pcd(pc, f"simple_pc_camera_{i}_{num_frame}.ply", container_name)
         if pc is None:
             logger.error(f"Error creating point cloud for frame {num_frame} of camera {i}")
             continue
         logger.info(f"[TS] Frame [{num_frame}] PCD created for camera {i}")
         pcd_list.append(pc)
-    '''
+
     # chekipoins - BORRAR
     print(f"Size of the array of simple point clouds: {len(pcd_list)}") 
-    '''
+
     #* THIRD: ICP algorithm - fusion
     final_fused_point_cloud = icp_p2p_registration_ransac(pcd_list, target_ds)
     if final_fused_point_cloud is None:
@@ -194,12 +196,24 @@ def process_message(msg, total_cameras):
             received_frames_dict[num_frame] = (received_frames_dict[num_frame][0], Timer(batch_timeout, on_batch_timeout, args=[num_frame]))
             received_frames_dict[num_frame][1].start()
 
-## MQTT funs
+## MQTT funs 
+def on_connect(client, userdata, flags, rc, properties=None):
+    if rc == 0:
+        logger.info(f"Connected to HiveMQ Cloud MQTT.")
+        client.subscribe(MQTT_TOPIC_CAM)
+    else:
+        logger.info(f"Connection to MQTT broker failed.")
+
 def on_message(client, userdata, msg): 
+    dt_now = datetime.now(tz=timezone.utc) 
+    timestamp_main = round(dt_now.timestamp() * 1000)
+    
     message = json.loads(msg.payload)
     timestamp = message.get('send_ts')
     total_cameras = message.get('total_cameras')
     total_cameras = int(total_cameras)
+
+    logger.info(f"[TIME] Mensaje enviado en {timestamp} llega ahora en {timestamp_main} = {timestamp_main-timestamp}")
 
     # Timestamp's already received
     if timestamp in processed_timestamps:
@@ -208,13 +222,6 @@ def on_message(client, userdata, msg):
     
     processed_timestamps.add(timestamp)
     threading.Thread(target=process_message, args=(msg,total_cameras)).start()
-
-def on_connect(client, userdata, flags, rc, properties=None):
-    if rc == 0:
-        logger.info(f"Connected to HiveMQ Cloud MQTT.")
-        client.subscribe(MQTT_TOPIC_CAM)
-    else:
-        logger.info(f"Connection to MQTT broker failed.")
 
 ## MAIN 
 def main():

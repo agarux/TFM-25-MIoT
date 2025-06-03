@@ -1,0 +1,813 @@
+2025-05-23 13:15:33,907 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-23 13:16:17,072 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:16:17,077 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testvx1
+2025-05-23 13:16:17,205 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:16:17,218 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000570922112 and sequence name testvx1
+2025-05-23 13:16:17,386 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:16:17,390 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testvx1
+2025-05-23 13:16:17,688 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:16:17,692 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testvx1
+2025-05-23 13:16:18,516 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:16:18,522 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000687922112 and sequence name testvx1
+2025-05-23 13:16:18,813 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:16:18,816 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000508922212 and sequence name testvx1
+2025-05-23 13:16:18,817 - server_logger - INFO - Batch full for frame f0001
+2025-05-23 13:16:18,817 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-05-23 13:16:18,831 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:16:18,889 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-05-23 13:16:18,934 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:16:19,018 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:16:19,019 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-05-23 13:16:19,100 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:16:19,101 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-05-23 13:16:19,182 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:16:19,183 - server_logger - DEBUG - Adjusted len color_image_data: 1393414
+
+2025-05-23 13:16:19,235 - server_logger - DEBUG - Adjusted len depth_image_data: 482134
+
+2025-05-23 13:16:19,268 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:16:19,269 - server_logger - DEBUG - Adjusted len color_image_data: 1322904
+
+2025-05-23 13:16:19,319 - server_logger - DEBUG - Adjusted len depth_image_data: 440078
+
+2025-05-23 13:16:19,350 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-05-23 13:16:54,252 - server_logger - INFO - Frame hecho
+2025-05-23 13:16:54,588 - server_logger - INFO - Frame hecho
+2025-05-23 13:16:54,920 - server_logger - INFO - Frame hecho
+2025-05-23 13:16:55,227 - server_logger - INFO - Frame hecho
+2025-05-23 13:16:55,525 - server_logger - INFO - Frame hecho
+2025-05-23 13:16:55,826 - server_logger - INFO - Frame hecho
+2025-05-23 13:16:55,868 - server_logger - DEBUG - PCD len before downsampling 285145
+2025-05-23 13:16:55,868 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:16:55,869 - server_logger - DEBUG - [TEST] Voxel size: 1e-05
+2025-05-23 13:16:55,894 - server_logger - DEBUG - PCD len after downsampling 32616
+2025-05-23 13:16:55,957 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-05-23 13:16:55,987 - server_logger - DEBUG - PCD len before downsampling 241651
+2025-05-23 13:16:55,987 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:16:55,988 - server_logger - DEBUG - [TEST] Voxel size: 1e-05
+2025-05-23 13:16:56,012 - server_logger - DEBUG - PCD len after downsampling 26213
+2025-05-23 13:16:56,079 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 2
+2025-05-23 13:16:56,110 - server_logger - DEBUG - PCD len before downsampling 261938
+2025-05-23 13:16:56,110 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:16:56,110 - server_logger - DEBUG - [TEST] Voxel size: 1e-05
+2025-05-23 13:16:56,131 - server_logger - DEBUG - PCD len after downsampling 26193
+2025-05-23 13:16:56,186 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 3
+2025-05-23 13:16:56,214 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-05-23 13:16:56,214 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:16:56,214 - server_logger - DEBUG - [TEST] Voxel size: 1e-05
+2025-05-23 13:16:56,234 - server_logger - DEBUG - PCD len after downsampling 26086
+2025-05-23 13:16:56,287 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 4
+2025-05-23 13:16:56,314 - server_logger - DEBUG - PCD len before downsampling 122589
+2025-05-23 13:16:56,315 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:16:56,315 - server_logger - DEBUG - [TEST] Voxel size: 1e-05
+2025-05-23 13:16:56,326 - server_logger - DEBUG - PCD len after downsampling 19083
+2025-05-23 13:16:56,370 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 5
+2025-05-23 13:16:56,401 - server_logger - DEBUG - PCD len before downsampling 200689
+2025-05-23 13:16:56,401 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:16:56,401 - server_logger - DEBUG - [TEST] Voxel size: 1e-05
+2025-05-23 13:16:56,419 - server_logger - DEBUG - PCD len after downsampling 22068
+2025-05-23 13:16:56,470 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 6
+2025-05-23 13:16:56,471 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:16:56,471 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 1e-05, THRESHOLD: 0.0025
+2025-05-23 13:16:56,471 - server_logger - INFO - P2P Generator created
+2025-05-23 13:16:56,471 - server_logger - INFO - [TS] P2P registration INIT
+2025-05-23 13:16:56,471 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-05-23 13:20:22,350 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-23 13:20:31,795 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:20:31,798 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testvx1
+2025-05-23 13:20:31,996 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:20:32,001 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testvx1
+2025-05-23 13:20:32,252 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:20:32,256 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testvx1
+2025-05-23 13:20:32,509 - server_logger - INFO - Total cameras = 6
+2025-05-23 13:20:32,513 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000508922212 and sequence name testvx1
+2025-05-23 13:21:00,627 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-23 13:21:12,402 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:21:12,406 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testvx1
+2025-05-23 13:21:12,569 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:21:12,573 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testvx1
+2025-05-23 13:21:12,718 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:21:12,728 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testvx1
+2025-05-23 13:21:12,895 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:21:12,900 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000508922212 and sequence name testvx1
+2025-05-23 13:21:12,900 - server_logger - INFO - Batch full for frame f0001
+2025-05-23 13:21:12,900 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-05-23 13:21:12,900 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:21:12,957 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-05-23 13:21:12,989 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:21:12,990 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-05-23 13:21:13,071 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:21:13,072 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-05-23 13:21:13,158 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:21:13,159 - server_logger - DEBUG - Adjusted len color_image_data: 1322904
+
+2025-05-23 13:21:13,210 - server_logger - DEBUG - Adjusted len depth_image_data: 440078
+
+2025-05-23 13:21:13,240 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-05-23 13:21:32,095 - server_logger - INFO - Frame hecho
+2025-05-23 13:21:32,391 - server_logger - INFO - Frame hecho
+2025-05-23 13:21:32,685 - server_logger - INFO - Frame hecho
+2025-05-23 13:21:32,971 - server_logger - INFO - Frame hecho
+2025-05-23 13:21:33,000 - server_logger - DEBUG - PCD len before downsampling 285145
+2025-05-23 13:21:33,000 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:33,000 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:21:33,014 - server_logger - DEBUG - PCD len after downsampling 6465
+2025-05-23 13:21:33,027 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-05-23 13:21:33,061 - server_logger - DEBUG - PCD len before downsampling 261938
+2025-05-23 13:21:33,062 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:33,062 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:21:33,075 - server_logger - DEBUG - PCD len after downsampling 5134
+2025-05-23 13:21:33,090 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 2
+2025-05-23 13:21:33,121 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-05-23 13:21:33,121 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:33,121 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:21:33,132 - server_logger - DEBUG - PCD len after downsampling 5183
+2025-05-23 13:21:33,142 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 3
+2025-05-23 13:21:33,169 - server_logger - DEBUG - PCD len before downsampling 200689
+2025-05-23 13:21:33,170 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:33,170 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:21:33,180 - server_logger - DEBUG - PCD len after downsampling 4365
+2025-05-23 13:21:33,190 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 4
+2025-05-23 13:21:33,190 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:33,190 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:33,190 - server_logger - INFO - P2P Generator created
+2025-05-23 13:21:33,190 - server_logger - INFO - [TS] P2P registration INIT
+2025-05-23 13:21:33,191 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-05-23 13:21:35,852 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.0
+### Inlier Ratio: 1.0
+### Recall Ratio: 1.0
+### False Match Ratio: 0.0
+2025-05-23 13:21:35,852 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 5134, 6465
+2025-05-23 13:21:35,852 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:35,852 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:36,006 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:36,007 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:36,242 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:36,243 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:36,290 - server_logger - INFO - 
+############## ITERATION 2 METRICS ########################
+2025-05-23 13:21:37,772 - server_logger - INFO - ### threshold: 1e-05### RMSE: 5.796892707737313e-05
+### Inlier Ratio: 0.4596805609661083
+### Recall Ratio: 0.36504253673627224
+### False Match Ratio: 0.5403194390338917
+2025-05-23 13:21:37,773 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 5183, 6465
+2025-05-23 13:21:37,773 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:37,773 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:37,920 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:37,920 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:38,179 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:38,179 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:38,241 - server_logger - INFO - 
+############## ITERATION 3 METRICS ########################
+2025-05-23 13:21:39,731 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.00011628817800006065
+### Inlier Ratio: 0.3229789697086629
+### Recall Ratio: 0.2589327146171694
+### False Match Ratio: 0.6770210302913371
+2025-05-23 13:21:39,731 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 4365, 6465
+2025-05-23 13:21:39,731 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:39,732 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:39,877 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:39,877 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:40,112 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:21:40,112 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:21:40,167 - server_logger - INFO - 
+############## ITERATION 4 METRICS ########################
+2025-05-23 13:21:41,435 - server_logger - INFO - ### threshold: 1e-05### RMSE: 5.097153300561155e-05
+### Inlier Ratio: 0.3725085910652921
+### Recall Ratio: 0.25150812064965195
+### False Match Ratio: 0.6274914089347079
+2025-05-23 13:21:41,435 - server_logger - INFO - [TS] P2P registration END
+2025-05-23 13:21:41,435 - server_logger - INFO - metricas calculadas
+2025-05-23 13:26:30,009 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-23 13:26:40,707 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:26:40,713 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testvx1
+2025-05-23 13:26:40,881 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:26:40,885 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testvx1
+2025-05-23 13:26:41,026 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:26:41,034 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testvx1
+2025-05-23 13:26:41,184 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:26:41,187 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000508922212 and sequence name testvx1
+2025-05-23 13:26:41,188 - server_logger - INFO - Batch full for frame f0001
+2025-05-23 13:26:41,188 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-05-23 13:26:41,205 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:26:41,259 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-05-23 13:26:41,291 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:26:41,292 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-05-23 13:26:41,372 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:26:41,373 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-05-23 13:26:41,453 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:26:41,453 - server_logger - DEBUG - Adjusted len color_image_data: 1322904
+
+2025-05-23 13:26:41,505 - server_logger - DEBUG - Adjusted len depth_image_data: 440078
+
+2025-05-23 13:26:41,534 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-05-23 13:26:59,948 - server_logger - INFO - Frame hecho
+2025-05-23 13:27:00,262 - server_logger - INFO - Frame hecho
+2025-05-23 13:27:00,557 - server_logger - INFO - Frame hecho
+2025-05-23 13:27:00,856 - server_logger - INFO - Frame hecho
+2025-05-23 13:27:00,886 - server_logger - DEBUG - PCD len before downsampling 285145
+2025-05-23 13:27:00,887 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:00,887 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:27:00,901 - server_logger - DEBUG - PCD len after downsampling 6465
+2025-05-23 13:27:00,916 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-05-23 13:27:00,944 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-05-23 13:27:00,945 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:00,945 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:27:00,956 - server_logger - DEBUG - PCD len after downsampling 5183
+2025-05-23 13:27:00,967 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 2
+2025-05-23 13:27:00,996 - server_logger - DEBUG - PCD len before downsampling 261938
+2025-05-23 13:27:00,997 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:00,997 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:27:01,011 - server_logger - DEBUG - PCD len after downsampling 5134
+2025-05-23 13:27:01,031 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 3
+2025-05-23 13:27:01,061 - server_logger - DEBUG - PCD len before downsampling 200689
+2025-05-23 13:27:01,061 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:01,062 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:27:01,073 - server_logger - DEBUG - PCD len after downsampling 4365
+2025-05-23 13:27:01,089 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 4
+2025-05-23 13:27:01,089 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:01,090 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:01,090 - server_logger - INFO - P2P Generator created
+2025-05-23 13:27:01,090 - server_logger - INFO - [TS] P2P registration INIT
+2025-05-23 13:27:01,090 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-05-23 13:27:03,727 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.0
+### Inlier Ratio: 1.0
+### Recall Ratio: 1.0
+### False Match Ratio: 0.0
+2025-05-23 13:27:03,727 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 5183, 6465
+2025-05-23 13:27:03,727 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:03,727 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:03,885 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:03,886 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:04,188 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:04,188 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:04,290 - server_logger - INFO - 
+############## ITERATION 2 METRICS ########################
+2025-05-23 13:27:05,806 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.00011629068579461535
+### Inlier Ratio: 0.32355778506656374
+### Recall Ratio: 0.2593967517401392
+### False Match Ratio: 0.6764422149334363
+2025-05-23 13:27:05,807 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 5134, 6465
+2025-05-23 13:27:05,807 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:05,807 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:05,951 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:05,951 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:06,201 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:06,201 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:06,248 - server_logger - INFO - 
+############## ITERATION 3 METRICS ########################
+2025-05-23 13:27:07,744 - server_logger - INFO - ### threshold: 1e-05### RMSE: 5.822581776371439e-05
+### Inlier Ratio: 0.46318659914296845
+### Recall Ratio: 0.36782675947409127
+### False Match Ratio: 0.5368134008570316
+2025-05-23 13:27:07,744 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 4365, 6465
+2025-05-23 13:27:07,744 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:07,744 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:07,884 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:07,884 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:08,123 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:27:08,123 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:27:08,188 - server_logger - INFO - 
+############## ITERATION 4 METRICS ########################
+2025-05-23 13:27:09,455 - server_logger - INFO - ### threshold: 1e-05### RMSE: 5.11440611671449e-05
+### Inlier Ratio: 0.3770904925544101
+### Recall Ratio: 0.2546017014694509
+### False Match Ratio: 0.6229095074455899
+2025-05-23 13:27:09,455 - server_logger - INFO - [TS] P2P registration END
+2025-05-23 13:27:09,455 - server_logger - INFO - TOTAL POINTS of pc = 21147
+2025-05-23 13:27:09,455 - server_logger - INFO - metricas calculadas
+2025-05-23 13:27:09,455 - server_logger - DEBUG - FRAME [f0001] REGISTRATION SUCCESSFUL
+2025-05-23 13:27:09,464 - server_logger - DEBUG - Point cloud saved to testvx1_f0001_icp_ransac.ply
+2025-05-23 13:27:09,757 - server_logger - DEBUG - LISTA DE CONTAINERS IN AZURE: ['6cam1framee', 'sequence1', 'sequence2', 'test5cam', 'testdepth1cam']
+2025-05-23 13:27:09,861 - server_logger - INFO - [TS] testvx1_f0001_icp_ransac.ply uploaded to Azure Blob Storage.
+2025-05-23 13:27:09,865 - server_logger - DEBUG - testvx1_f0001_icp_ransac.ply removed from disk.
+2025-05-23 13:35:48,225 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-23 13:36:05,460 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:36:05,466 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testvx2
+2025-05-23 13:36:05,574 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:36:05,578 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testvx2
+2025-05-23 13:36:05,692 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:36:05,697 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testvx2
+2025-05-23 13:36:05,850 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:36:05,854 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000508922212 and sequence name testvx2
+2025-05-23 13:36:05,855 - server_logger - INFO - Batch full for frame f0001
+2025-05-23 13:36:05,855 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-05-23 13:36:05,855 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:36:05,915 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-05-23 13:36:05,945 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:36:05,946 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-05-23 13:36:06,025 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:36:06,025 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-05-23 13:36:06,104 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:36:06,104 - server_logger - DEBUG - Adjusted len color_image_data: 1322904
+
+2025-05-23 13:36:06,154 - server_logger - DEBUG - Adjusted len depth_image_data: 440078
+
+2025-05-23 13:36:06,184 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-05-23 13:36:24,867 - server_logger - INFO - Frame hecho
+2025-05-23 13:36:25,188 - server_logger - INFO - Frame hecho
+2025-05-23 13:36:25,486 - server_logger - INFO - Frame hecho
+2025-05-23 13:36:25,782 - server_logger - INFO - Frame hecho
+2025-05-23 13:36:25,820 - server_logger - DEBUG - PCD len before downsampling 285145
+2025-05-23 13:36:25,820 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:36:25,820 - server_logger - DEBUG - [TEST] Voxel size: 1.5000000000000002e-05
+2025-05-23 13:36:25,838 - server_logger - DEBUG - PCD len after downsampling 16006
+2025-05-23 13:36:25,875 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-05-23 13:36:25,910 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-05-23 13:36:25,910 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:36:25,910 - server_logger - DEBUG - [TEST] Voxel size: 1.5000000000000002e-05
+2025-05-23 13:36:25,923 - server_logger - DEBUG - PCD len after downsampling 12811
+2025-05-23 13:36:25,960 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 2
+2025-05-23 13:36:25,996 - server_logger - DEBUG - PCD len before downsampling 261938
+2025-05-23 13:36:25,997 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:36:25,997 - server_logger - DEBUG - [TEST] Voxel size: 1.5000000000000002e-05
+2025-05-23 13:36:26,013 - server_logger - DEBUG - PCD len after downsampling 12825
+2025-05-23 13:36:26,057 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 3
+2025-05-23 13:36:26,092 - server_logger - DEBUG - PCD len before downsampling 200689
+2025-05-23 13:36:26,092 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:36:26,092 - server_logger - DEBUG - [TEST] Voxel size: 1.5000000000000002e-05
+2025-05-23 13:36:26,107 - server_logger - DEBUG - PCD len after downsampling 10867
+2025-05-23 13:36:26,140 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 4
+2025-05-23 13:36:26,141 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:36:26,141 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:36:26,142 - server_logger - INFO - P2P Generator created
+2025-05-23 13:36:26,142 - server_logger - INFO - [TS] P2P registration INIT
+2025-05-23 13:36:26,142 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-05-23 13:40:57,188 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-23 13:41:05,315 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:41:05,319 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testvx2
+2025-05-23 13:41:05,419 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:41:05,425 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testvx2
+2025-05-23 13:41:05,591 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:41:05,595 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testvx2
+2025-05-23 13:41:05,804 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:41:05,807 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000508922212 and sequence name testvx2
+2025-05-23 13:41:05,808 - server_logger - INFO - Batch full for frame f0001
+2025-05-23 13:41:05,808 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-05-23 13:41:05,823 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:41:05,824 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-05-23 13:41:05,910 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:41:05,961 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-05-23 13:41:05,993 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:41:05,994 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-05-23 13:41:06,072 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:41:06,073 - server_logger - DEBUG - Adjusted len color_image_data: 1322904
+
+2025-05-23 13:41:06,124 - server_logger - DEBUG - Adjusted len depth_image_data: 440078
+
+2025-05-23 13:41:06,154 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-05-23 13:41:25,285 - server_logger - INFO - Frame hecho
+2025-05-23 13:41:25,613 - server_logger - INFO - Frame hecho
+2025-05-23 13:41:25,910 - server_logger - INFO - Frame hecho
+2025-05-23 13:41:26,210 - server_logger - INFO - Frame hecho
+2025-05-23 13:41:26,241 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-05-23 13:41:26,242 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,242 - server_logger - DEBUG - [TEST] Voxel size: 1.5000000000000002e-05
+2025-05-23 13:41:26,254 - server_logger - DEBUG - PCD len after downsampling 490
+2025-05-23 13:41:26,256 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-05-23 13:41:26,286 - server_logger - DEBUG - PCD len before downsampling 285145
+2025-05-23 13:41:26,287 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,287 - server_logger - DEBUG - [TEST] Voxel size: 1.5000000000000002e-05
+2025-05-23 13:41:26,301 - server_logger - DEBUG - PCD len after downsampling 630
+2025-05-23 13:41:26,303 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 2
+2025-05-23 13:41:26,333 - server_logger - DEBUG - PCD len before downsampling 261938
+2025-05-23 13:41:26,333 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,334 - server_logger - DEBUG - [TEST] Voxel size: 1.5000000000000002e-05
+2025-05-23 13:41:26,345 - server_logger - DEBUG - PCD len after downsampling 511
+2025-05-23 13:41:26,348 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 3
+2025-05-23 13:41:26,376 - server_logger - DEBUG - PCD len before downsampling 200689
+2025-05-23 13:41:26,376 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,377 - server_logger - DEBUG - [TEST] Voxel size: 1.5000000000000002e-05
+2025-05-23 13:41:26,387 - server_logger - DEBUG - PCD len after downsampling 424
+2025-05-23 13:41:26,389 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 4
+2025-05-23 13:41:26,389 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,390 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,390 - server_logger - INFO - P2P Generator created
+2025-05-23 13:41:26,390 - server_logger - INFO - [TS] P2P registration INIT
+2025-05-23 13:41:26,390 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-05-23 13:41:26,401 - server_logger - INFO - ### threshold: 6.000000000000001e-06### RMSE: 0.0
+### Inlier Ratio: 1.0
+### Recall Ratio: 1.0
+### False Match Ratio: 0.0
+2025-05-23 13:41:26,402 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 630, 490
+2025-05-23 13:41:26,402 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,403 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,426 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,426 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,583 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,584 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,585 - server_logger - INFO - 
+############## ITERATION 2 METRICS ########################
+2025-05-23 13:41:26,598 - server_logger - INFO - ### threshold: 6.000000000000001e-06### RMSE: 0.0003126064106907199
+### Inlier Ratio: 0.0015873015873015873
+### Recall Ratio: 0.0020408163265306124
+### False Match Ratio: 0.9984126984126984
+2025-05-23 13:41:26,599 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 511, 490
+2025-05-23 13:41:26,599 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,599 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,614 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,615 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,756 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,756 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,757 - server_logger - INFO - 
+############## ITERATION 3 METRICS ########################
+2025-05-23 13:41:26,769 - server_logger - INFO - ### threshold: 6.000000000000001e-06### RMSE: 0.0006254186407588445
+### Inlier Ratio: 0.0019569471624266144
+### Recall Ratio: 0.0020408163265306124
+### False Match Ratio: 0.9980430528375734
+2025-05-23 13:41:26,770 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 424, 490
+2025-05-23 13:41:26,770 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,771 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,784 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,784 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,935 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:41:26,935 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 1.5000000000000002e-05, THRESHOLD: 0.0025
+2025-05-23 13:41:26,936 - server_logger - INFO - 
+############## ITERATION 4 METRICS ########################
+2025-05-23 13:41:26,945 - server_logger - INFO - ### threshold: 6.000000000000001e-06### RMSE: 0.00036591873081386804
+### Inlier Ratio: 0.0
+### Recall Ratio: 0.0
+### False Match Ratio: 1.0
+2025-05-23 13:41:26,945 - server_logger - INFO - [TS] P2P registration END
+2025-05-23 13:41:26,945 - server_logger - INFO - TOTAL POINTS of pc = 2055
+2025-05-23 13:41:26,945 - server_logger - INFO - metricas calculadas
+2025-05-23 13:41:26,945 - server_logger - DEBUG - FRAME [f0001] REGISTRATION SUCCESSFUL
+2025-05-23 13:41:26,948 - server_logger - DEBUG - Point cloud saved to testvx2_f0001_icp_ransac.ply
+2025-05-23 13:41:27,088 - server_logger - DEBUG - LISTA DE CONTAINERS IN AZURE: ['6cam1framee', 'sequence1', 'sequence2', 'test5cam', 'testdepth1cam', 'testvx1']
+2025-05-23 13:41:27,134 - server_logger - INFO - [TS] testvx2_f0001_icp_ransac.ply uploaded to Azure Blob Storage.
+2025-05-23 13:41:27,135 - server_logger - DEBUG - testvx2_f0001_icp_ransac.ply removed from disk.
+2025-05-23 13:43:47,387 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-23 13:43:58,623 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:43:58,628 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testvx3
+2025-05-23 13:43:58,916 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:43:58,923 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000508922212 and sequence name testvx3
+2025-05-23 13:43:59,241 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:43:59,245 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testvx3
+2025-05-23 13:43:59,514 - server_logger - INFO - Total cameras = 4
+2025-05-23 13:43:59,518 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testvx3
+2025-05-23 13:43:59,518 - server_logger - INFO - Batch full for frame f0001
+2025-05-23 13:43:59,519 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-05-23 13:43:59,519 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:43:59,520 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-05-23 13:43:59,627 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:43:59,627 - server_logger - DEBUG - Adjusted len color_image_data: 1322904
+
+2025-05-23 13:43:59,682 - server_logger - DEBUG - Adjusted len depth_image_data: 440078
+
+2025-05-23 13:43:59,711 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:43:59,763 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-05-23 13:43:59,794 - server_logger - INFO - Sacando frames uno a uno
+2025-05-23 13:43:59,794 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-05-23 13:43:59,875 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-05-23 13:44:23,014 - server_logger - INFO - Frame hecho
+2025-05-23 13:44:23,361 - server_logger - INFO - Frame hecho
+2025-05-23 13:44:23,732 - server_logger - INFO - Frame hecho
+2025-05-23 13:44:24,047 - server_logger - INFO - Frame hecho
+2025-05-23 13:44:24,080 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-05-23 13:44:24,081 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:44:24,081 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:44:24,101 - server_logger - DEBUG - PCD len after downsampling 26000
+2025-05-23 13:44:24,170 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-05-23 13:44:24,207 - server_logger - DEBUG - PCD len before downsampling 200689
+2025-05-23 13:44:24,208 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:44:24,208 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:44:24,230 - server_logger - DEBUG - PCD len after downsampling 21957
+2025-05-23 13:44:24,287 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 2
+2025-05-23 13:44:24,323 - server_logger - DEBUG - PCD len before downsampling 285145
+2025-05-23 13:44:24,323 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:44:24,324 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:44:24,359 - server_logger - DEBUG - PCD len after downsampling 32210
+2025-05-23 13:44:24,442 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 3
+2025-05-23 13:44:24,482 - server_logger - DEBUG - PCD len before downsampling 261938
+2025-05-23 13:44:24,482 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:44:24,482 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-23 13:44:24,509 - server_logger - DEBUG - PCD len after downsampling 25885
+2025-05-23 13:44:24,576 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 4
+2025-05-23 13:44:24,577 - server_logger - DEBUG - ID DATASET: 1
+2025-05-23 13:44:24,577 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-23 13:44:24,577 - server_logger - INFO - P2P Generator created
+2025-05-23 13:44:24,577 - server_logger - INFO - [TS] P2P registration INIT
+2025-05-23 13:44:24,577 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-05-28 12:52:15,903 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-28 12:52:34,833 - server_logger - INFO - Total cameras = 3
+2025-05-28 12:52:34,837 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testsaave
+2025-05-28 12:52:34,878 - server_logger - INFO - Total cameras = 3
+2025-05-28 12:52:34,881 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testsaave
+2025-05-28 12:52:34,917 - server_logger - INFO - Total cameras = 3
+2025-05-28 12:52:34,926 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testsaave
+2025-05-28 12:52:34,927 - server_logger - INFO - Batch full for frame f0001
+2025-05-28 12:52:34,927 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-05-28 12:52:34,942 - server_logger - INFO - Sacando frames uno a uno
+2025-05-28 12:52:35,003 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-05-28 12:52:35,122 - server_logger - INFO - Sacando frames uno a uno
+2025-05-28 12:52:35,123 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-05-28 12:52:35,282 - server_logger - INFO - Sacando frames uno a uno
+2025-05-28 12:52:35,283 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-05-28 12:52:35,438 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-05-28 12:52:50,649 - server_logger - INFO - Frame hecho
+2025-05-28 12:52:51,118 - server_logger - INFO - Frame hecho
+2025-05-28 12:52:51,554 - server_logger - INFO - Frame hecho
+2025-05-28 12:52:51,586 - server_logger - DEBUG - PCD len before downsampling 285145
+2025-05-28 12:52:51,586 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:51,586 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-28 12:52:51,600 - server_logger - DEBUG - PCD len after downsampling 6404
+2025-05-28 12:52:51,619 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-05-28 12:52:51,649 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-05-28 12:52:51,649 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:51,649 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-28 12:52:51,662 - server_logger - DEBUG - PCD len after downsampling 5148
+2025-05-28 12:52:51,681 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 2
+2025-05-28 12:52:51,714 - server_logger - DEBUG - PCD len before downsampling 261938
+2025-05-28 12:52:51,714 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:51,714 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-28 12:52:51,727 - server_logger - DEBUG - PCD len after downsampling 5096
+2025-05-28 12:52:51,741 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 3
+2025-05-28 12:52:51,741 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:51,741 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:52:51,741 - server_logger - INFO - P2P Generator created
+2025-05-28 12:52:51,741 - server_logger - INFO - [TS] P2P registration INIT
+2025-05-28 12:52:51,741 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-05-28 12:52:54,965 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.0
+### Inlier Ratio: 1.0
+### Recall Ratio: 1.0
+### False Match Ratio: 0.0
+2025-05-28 12:52:54,966 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 5148, 6404
+2025-05-28 12:52:54,966 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:54,966 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:52:55,091 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:55,091 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:52:55,333 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:55,333 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:52:55,359 - server_logger - INFO - 
+############## ITERATION 2 METRICS ########################
+2025-05-28 12:52:57,018 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.00011493473515019871
+### Inlier Ratio: 0.31993006993006995
+### Recall Ratio: 0.2571830106183635
+### False Match Ratio: 0.68006993006993
+2025-05-28 12:52:57,018 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 5096, 6404
+2025-05-28 12:52:57,018 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:57,018 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:52:57,149 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:57,149 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:52:57,369 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:52:57,369 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:52:57,410 - server_logger - INFO - 
+############## ITERATION 3 METRICS ########################
+2025-05-28 12:52:58,901 - server_logger - INFO - ### threshold: 1e-05### RMSE: 5.9471721049994405e-05
+### Inlier Ratio: 0.472723704866562
+### Recall Ratio: 0.37617114303560273
+### False Match Ratio: 0.527276295133438
+2025-05-28 12:52:58,902 - server_logger - INFO - [TS] P2P registration END
+2025-05-28 12:52:58,902 - server_logger - INFO - TOTAL POINTS of pc = 16648
+2025-05-28 12:52:58,902 - server_logger - INFO - metricas calculadas
+2025-05-28 12:52:58,902 - server_logger - DEBUG - FRAME [f0001] REGISTRATION SUCCESSFUL
+2025-05-28 12:52:58,908 - server_logger - DEBUG - Point cloud saved to testsaave_f0001_icp_ransac.ply
+2025-05-28 12:52:59,236 - server_logger - DEBUG - LISTA DE CONTAINERS IN AZURE: ['6cam1framee', 'sequence1', 'sequence2', 'test5cam', 'testdepth1cam', 'testvx1', 'testvx2']
+2025-05-28 12:52:59,331 - server_logger - INFO - [TS] testsaave_f0001_icp_ransac.ply uploaded to Azure Blob Storage.
+2025-05-28 12:52:59,332 - server_logger - DEBUG - testsaave_f0001_icp_ransac.ply removed from disk.
+2025-05-28 12:58:57,472 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-28 12:59:12,856 - server_logger - INFO - Total cameras = 3
+2025-05-28 12:59:12,862 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testsave2
+2025-05-28 12:59:12,907 - server_logger - INFO - Total cameras = 3
+2025-05-28 12:59:12,912 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testsave2
+2025-05-28 12:59:12,947 - server_logger - INFO - Total cameras = 3
+2025-05-28 12:59:12,951 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testsave2
+2025-05-28 12:59:12,951 - server_logger - INFO - Batch full for frame f0001
+2025-05-28 12:59:12,952 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-05-28 12:59:12,967 - server_logger - INFO - Sacando frames uno a uno
+2025-05-28 12:59:13,021 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-05-28 12:59:13,135 - server_logger - INFO - Sacando frames uno a uno
+2025-05-28 12:59:13,135 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-05-28 12:59:13,298 - server_logger - INFO - Sacando frames uno a uno
+2025-05-28 12:59:13,299 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-05-28 12:59:13,459 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-05-28 12:59:27,835 - server_logger - INFO - Frame hecho
+2025-05-28 12:59:28,321 - server_logger - INFO - Frame hecho
+2025-05-28 12:59:28,789 - server_logger - INFO - Frame hecho
+2025-05-28 12:59:28,822 - server_logger - DEBUG - PCD len before downsampling 285145
+2025-05-28 12:59:28,823 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:28,823 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-28 12:59:28,839 - server_logger - DEBUG - PCD len after downsampling 6404
+2025-05-28 12:59:28,862 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-05-28 12:59:28,893 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-05-28 12:59:28,893 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:28,893 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-28 12:59:28,904 - server_logger - DEBUG - PCD len after downsampling 5148
+2025-05-28 12:59:28,915 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 2
+2025-05-28 12:59:28,951 - server_logger - DEBUG - PCD len before downsampling 261938
+2025-05-28 12:59:28,951 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:28,951 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-05-28 12:59:28,966 - server_logger - DEBUG - PCD len after downsampling 5096
+2025-05-28 12:59:28,981 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 3
+2025-05-28 12:59:28,981 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:28,981 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:59:28,981 - server_logger - INFO - P2P Generator created
+2025-05-28 12:59:28,981 - server_logger - INFO - [TS] P2P registration INIT
+2025-05-28 12:59:28,981 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-05-28 12:59:31,590 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.0
+### Inlier Ratio: 1.0
+### Recall Ratio: 1.0
+### False Match Ratio: 0.0
+2025-05-28 12:59:31,591 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 5148, 6404
+2025-05-28 12:59:31,591 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:31,591 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:59:31,709 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:31,710 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:59:31,937 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:31,938 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:59:31,972 - server_logger - INFO - 
+############## ITERATION 2 METRICS ########################
+2025-05-28 12:59:33,436 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.00011537929998770832
+### Inlier Ratio: 0.32167832167832167
+### Recall Ratio: 0.2585883822610868
+### False Match Ratio: 0.6783216783216783
+2025-05-28 12:59:33,436 - server_logger - INFO - 2 TAMAÑO DE LA NUBE DE PUNTOS QUE SE VA A FUSIONAR: 5096, 6404
+2025-05-28 12:59:33,436 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:33,437 - server_logger - DEBUG - [TEST] 3 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:59:33,551 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:33,551 - server_logger - DEBUG - [TEST] 4 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:59:33,768 - server_logger - DEBUG - ID DATASET: 1
+2025-05-28 12:59:33,769 - server_logger - DEBUG - [TEST] 5 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-05-28 12:59:33,814 - server_logger - INFO - 
+############## ITERATION 3 METRICS ########################
+2025-05-28 12:59:35,269 - server_logger - INFO - ### threshold: 1e-05### RMSE: 5.915756075679625e-05
+### Inlier Ratio: 0.4707613814756672
+### Recall Ratio: 0.37460961898813244
+### False Match Ratio: 0.5292386185243327
+2025-05-28 12:59:35,269 - server_logger - INFO - [TS] P2P registration END
+2025-05-28 12:59:35,269 - server_logger - INFO - TOTAL POINTS of pc = 16648
+2025-05-28 12:59:35,269 - server_logger - INFO - metricas calculadas
+2025-05-28 12:59:35,269 - server_logger - DEBUG - FRAME [f0001] REGISTRATION SUCCESSFUL
+2025-05-28 12:59:35,273 - server_logger - DEBUG - Point cloud saved to testsave2_f0001_icp_ransac.ply
+2025-05-28 12:59:35,444 - server_logger - DEBUG - LISTA DE CONTAINERS IN AZURE: ['6cam1framee', 'sequence1', 'sequence2', 'test5cam', 'testdepth1cam', 'testsaave', 'testvx1', 'testvx2']
+2025-05-28 12:59:35,525 - server_logger - INFO - [TS] testsave2_f0001_icp_ransac.ply uploaded to Azure Blob Storage.
+2025-05-28 12:59:35,525 - server_logger - DEBUG - testsave2_f0001_icp_ransac.ply removed from disk.
+2025-06-03 10:45:09,575 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 10:45:25,850 - server_logger - INFO - Total cameras = 1
+2025-06-03 10:45:25,850 - server_logger - INFO - Mensaje enviado en 1748940325234 llega ahora en 1748940325849
+2025-06-03 10:45:25,857 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testtiempo
+2025-06-03 10:45:25,857 - server_logger - INFO - Batch full for frame f0001
+2025-06-03 10:45:25,857 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-06-03 10:45:25,857 - server_logger - INFO - Sacando frames uno a uno
+2025-06-03 10:45:25,858 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-06-03 10:45:25,954 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES
+2025-06-03 10:45:31,070 - server_logger - INFO - Frame hecho
+2025-06-03 10:45:31,099 - server_logger - DEBUG - PCD len before downsampling 194703
+2025-06-03 10:45:31,099 - server_logger - DEBUG - ID DATASET: 1
+2025-06-03 10:45:31,099 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-06-03 10:45:31,108 - server_logger - DEBUG - PCD len after downsampling 5106
+2025-06-03 10:45:31,119 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-06-03 10:45:31,119 - server_logger - DEBUG - ID DATASET: 1
+2025-06-03 10:45:31,119 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-06-03 10:45:31,120 - server_logger - INFO - P2P Generator created
+2025-06-03 10:45:31,120 - server_logger - INFO - [TS] P2P registration INIT
+2025-06-03 10:45:31,120 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-06-03 10:45:32,252 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.0
+### Inlier Ratio: 1.0
+### Recall Ratio: 1.0
+### False Match Ratio: 0.0
+2025-06-03 10:45:32,252 - server_logger - INFO - [TS] P2P registration END
+2025-06-03 10:45:32,252 - server_logger - INFO - TOTAL POINTS of pc = 5106
+2025-06-03 10:45:32,253 - server_logger - INFO - metricas calculadas
+2025-06-03 10:45:32,253 - server_logger - DEBUG - FRAME [f0001] REGISTRATION SUCCESSFUL
+2025-06-03 10:45:32,256 - server_logger - DEBUG - Point cloud saved to testtiempo_f0001_icp_ransac.ply
+2025-06-03 10:45:32,861 - server_logger - DEBUG - LISTA DE CONTAINERS IN AZURE: ['6cam1framee', 'sequence1', 'sequence2', 'test5cam', 'testdepth1cam', 'testsaave', 'testsave2', 'testvx1', 'testvx2']
+2025-06-03 10:45:32,908 - server_logger - INFO - [TS] testtiempo_f0001_icp_ransac.ply uploaded to Azure Blob Storage.
+2025-06-03 10:45:32,908 - server_logger - DEBUG - testtiempo_f0001_icp_ransac.ply removed from disk.
+2025-06-03 10:53:01,408 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 10:54:37,417 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 10:54:43,651 - server_logger - INFO - Mensaje enviado en 1748940883526 llega ahora en 1748940883647
+2025-06-03 10:54:43,658 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testtime
+2025-06-03 10:54:43,659 - server_logger - INFO - Batch full for frame f0001
+2025-06-03 10:54:43,659 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-06-03 10:54:43,668 - server_logger - DEBUG - Adjusted len color_image_data: 1973630
+
+2025-06-03 10:54:48,705 - server_logger - DEBUG - PCD len before downsampling 202110
+2025-06-03 10:54:48,705 - server_logger - DEBUG - ID DATASET: 1
+2025-06-03 10:54:48,705 - server_logger - DEBUG - [TEST] Voxel size: 2.5e-05
+2025-06-03 10:54:48,716 - server_logger - DEBUG - PCD len after downsampling 5650
+2025-06-03 10:54:48,729 - server_logger - INFO - [TS] Frame [f0001] PCD created for camera 1
+2025-06-03 10:54:48,729 - server_logger - DEBUG - ID DATASET: 1
+2025-06-03 10:54:48,729 - server_logger - DEBUG - [TEST] 2 VOXEL SIZE: 2.5e-05, THRESHOLD: 0.0025
+2025-06-03 10:54:48,729 - server_logger - INFO - P2P Generator created
+2025-06-03 10:54:48,729 - server_logger - INFO - [TS] P2P registration INIT
+2025-06-03 10:54:48,729 - server_logger - INFO - 
+############## ITERATION 1 METRICS ########################
+2025-06-03 10:54:50,108 - server_logger - INFO - ### threshold: 1e-05### RMSE: 0.0
+### Inlier Ratio: 1.0
+### Recall Ratio: 1.0
+### False Match Ratio: 0.0
+2025-06-03 10:54:50,108 - server_logger - INFO - [TS] P2P registration END
+2025-06-03 10:54:50,108 - server_logger - INFO - TOTAL POINTS of pc = 5650
+2025-06-03 10:54:50,108 - server_logger - INFO - metricas calculadas
+2025-06-03 10:54:50,108 - server_logger - DEBUG - FRAME [f0001] REGISTRATION SUCCESSFUL
+2025-06-03 10:54:50,110 - server_logger - DEBUG - Point cloud saved to testtime_f0001_icp_ransac.ply
+2025-06-03 10:54:50,262 - server_logger - DEBUG - LISTA DE CONTAINERS IN AZURE: ['6cam1framee', 'sequence1', 'sequence2', 'test5cam', 'testdepth1cam', 'testsaave', 'testsave2', 'testtiempo', 'testvx1', 'testvx2']
+2025-06-03 10:54:50,323 - server_logger - INFO - [TS] testtime_f0001_icp_ransac.ply uploaded to Azure Blob Storage.
+2025-06-03 10:54:50,323 - server_logger - DEBUG - testtime_f0001_icp_ransac.ply removed from disk.
+2025-06-03 11:03:03,444 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 11:03:26,705 - server_logger - INFO - [TIME] Mensaje enviado en 1748941406609 llega ahora en 1748941406700 = 91
+2025-06-03 11:03:26,716 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testtime
+2025-06-03 11:03:26,764 - server_logger - INFO - [TIME] Mensaje enviado en 1748941406813 llega ahora en 1748941406759 = -54
+2025-06-03 11:03:26,771 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testtime
+2025-06-03 11:03:26,813 - server_logger - INFO - [TIME] Mensaje enviado en 1748941406285 llega ahora en 1748941406810 = 525
+2025-06-03 11:03:26,819 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testtime
+2025-06-03 11:03:26,857 - server_logger - INFO - [TIME] Mensaje enviado en 1748941407086 llega ahora en 1748941406854 = -232
+2025-06-03 11:03:26,863 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testtime
+2025-06-03 11:03:26,864 - server_logger - INFO - Batch full for frame f0001
+2025-06-03 11:03:26,865 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-06-03 11:03:26,941 - server_logger - DEBUG - Adjusted len color_image_data: 1973630
+
+2025-06-03 11:03:26,999 - server_logger - DEBUG - Adjusted len color_image_data: 1872740
+
+2025-06-03 11:03:27,030 - server_logger - DEBUG - Adjusted len depth_image_data: 804952
+
+2025-06-03 11:03:27,088 - server_logger - DEBUG - Adjusted len depth_image_data: 799190
+
+2025-06-03 11:07:22,318 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 11:07:50,565 - server_logger - INFO - [TIME] Mensaje enviado en 1748941669725 llega ahora en 1748941670562 = 837
+2025-06-03 11:07:50,572 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testsdjfalsd
+2025-06-03 11:07:50,618 - server_logger - INFO - [TIME] Mensaje enviado en 1748941669819 llega ahora en 1748941670614 = 795
+2025-06-03 11:07:50,628 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testsdjfalsd
+2025-06-03 11:07:50,673 - server_logger - INFO - [TIME] Mensaje enviado en 1748941670027 llega ahora en 1748941670670 = 643
+2025-06-03 11:07:50,681 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testsdjfalsd
+2025-06-03 11:07:52,258 - server_logger - INFO - [TIME] Mensaje enviado en 1748941669819 llega ahora en 1748941672247 = 2428
+2025-06-03 11:07:52,259 - server_logger - INFO - Timestamp 1748941669819 processed. Ignoring...
+2025-06-03 11:07:52,297 - server_logger - INFO - [TIME] Mensaje enviado en 1748941669928 llega ahora en 1748941672294 = 2366
+2025-06-03 11:07:52,304 - server_logger - INFO - [TS] Received MSG with frame f0001 of the camera None and sequence testsdjfalsd
+2025-06-03 11:07:52,305 - server_logger - INFO - Batch full for frame f0001
+2025-06-03 11:07:52,306 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-06-03 11:07:52,346 - server_logger - INFO - [TIME] Mensaje enviado en 1748941670027 llega ahora en 1748941672342 = 2315
+2025-06-03 11:07:52,346 - server_logger - INFO - Timestamp 1748941670027 processed. Ignoring...
+2025-06-03 11:07:52,380 - server_logger - DEBUG - Adjusted len color_image_data: 1973630
+
+2025-06-03 11:07:52,471 - server_logger - DEBUG - Adjusted len depth_image_data: 799190
+
+2025-06-03 11:07:52,495 - server_logger - DEBUG - Adjusted len color_image_data: 1872740
+
+2025-06-03 11:07:52,529 - server_logger - DEBUG - Adjusted len depth_image_data: 804952
+
+2025-06-03 11:10:19,608 - server_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-06-03 11:10:38,621 - server_logger - INFO - Total cameras = 4
+2025-06-03 11:10:38,623 - server_logger - INFO - [TIME] Mensaje enviado en 1748941837943 llega ahora en 1748941838618 = 675
+2025-06-03 11:10:38,626 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000491922212 and sequence name testesdt
+2025-06-03 11:10:39,055 - server_logger - INFO - Total cameras = 4
+2025-06-03 11:10:39,056 - server_logger - INFO - [TIME] Mensaje enviado en 1748941838862 llega ahora en 1748941839052 = 190
+2025-06-03 11:10:39,066 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000442922112 and sequence name testesdt
+2025-06-03 11:10:39,115 - server_logger - INFO - Total cameras = 4
+2025-06-03 11:10:39,115 - server_logger - INFO - [TIME] Mensaje enviado en 1748941838950 llega ahora en 1748941839110 = 160
+2025-06-03 11:10:39,125 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000507922212 and sequence name testesdt
+2025-06-03 11:10:39,245 - server_logger - INFO - Total cameras = 4
+2025-06-03 11:10:39,247 - server_logger - INFO - [TIME] Mensaje enviado en 1748941839105 llega ahora en 1748941839244 = 139
+2025-06-03 11:10:39,254 - server_logger - INFO - [TS] Frame f0001 received from camera ID: 000508922212 and sequence name testesdt
+2025-06-03 11:10:39,254 - server_logger - INFO - Batch full for frame f0001
+2025-06-03 11:10:39,255 - server_logger - INFO - Processing batch of messages corresponding to number of frame: f0001
+2025-06-03 11:10:39,278 - server_logger - INFO - Sacando frames uno a uno
+2025-06-03 11:10:39,280 - server_logger - DEBUG - Adjusted len color_image_data: 1290952
+
+2025-06-03 11:10:39,392 - server_logger - INFO - Sacando frames uno a uno
+2025-06-03 11:10:39,392 - server_logger - DEBUG - Adjusted len color_image_data: 1353582
+
+2025-06-03 11:10:39,473 - server_logger - INFO - Sacando frames uno a uno
+2025-06-03 11:10:39,530 - server_logger - DEBUG - Adjusted len depth_image_data: 497910
+
+2025-06-03 11:10:39,564 - server_logger - INFO - Sacando frames uno a uno
+2025-06-03 11:10:39,564 - server_logger - DEBUG - Adjusted len color_image_data: 1322904
+
+2025-06-03 11:10:39,615 - server_logger - DEBUG - Adjusted len depth_image_data: 440078
+
+2025-06-03 11:10:39,659 - server_logger - INFO - SEGMENTACION DE FRAMES DE COLORES

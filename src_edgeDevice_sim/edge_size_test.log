@@ -1,0 +1,44 @@
+2025-05-26 15:39:44,558 - edge_logger - INFO - Camera simulation started with:
+BROKER_IP: 7c9990070e35402ea3c6ad7ccf724e0b.s1.eu.hivemq.cloud
+BROKER_PORT: 8883
+SEND_FREQUENCY: 1
+2025-05-26 15:39:44,691 - edge_logger - INFO - Connected to HiveMQ Cloud MQTT.
+2025-05-26 15:39:46,856 - edge_logger - INFO - Sending all frames of camera 000442922112 INIT
+2025-05-26 15:39:52,276 - edge_logger - INFO - 
+=== RAW data ===
+2025-05-26 15:39:52,277 - edge_logger - INFO - enc_c               : 1973629 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - enc_d               : 731880 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - =================
+2025-05-26 15:39:52,277 - edge_logger - INFO - Estimated total raw size: 2705509 bytes
+
+2025-05-26 15:39:52,277 - edge_logger - INFO - 
+=== CV compression ===
+2025-05-26 15:39:52,277 - edge_logger - INFO - frame_color_name    : 28 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - enc_c               : 1353581 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - frame_depth_name    : 28 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - enc_d               : 430688 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - K                   : 72 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - send_ts             : 8 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - container_name      : 9 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - total_cameras       : 8 bytes
+2025-05-26 15:39:52,277 - edge_logger - INFO - ============================
+2025-05-26 15:39:52,277 - edge_logger - INFO - Message size CV: 1784422 bytes
+2025-05-26 15:39:52,278 - edge_logger - INFO - Message size CBOR: 1784530 bytes. ENVIADO.
+
+2025-05-26 15:39:52,278 - edge_logger - INFO - 
+=== base64 encoding ===
+2025-05-26 15:39:52,278 - edge_logger - INFO - frame_color_name    : 28 bytes
+2025-05-26 15:39:52,279 - edge_logger - INFO - enc_c               : 2631508 bytes
+2025-05-26 15:39:52,279 - edge_logger - INFO - frame_depth_name    : 28 bytes
+2025-05-26 15:39:52,279 - edge_logger - INFO - enc_d               : 975840 bytes
+2025-05-26 15:39:52,279 - edge_logger - INFO - K                   : 72 bytes
+2025-05-26 15:39:52,280 - edge_logger - INFO - send_ts             : 8 bytes
+2025-05-26 15:39:52,280 - edge_logger - INFO - container_name      : 9 bytes
+2025-05-26 15:39:52,280 - edge_logger - INFO - total_cameras       : 8 bytes
+2025-05-26 15:39:52,280 - edge_logger - INFO - ============================
+2025-05-26 15:39:52,280 - edge_logger - INFO - Message size CV: 3607501 bytes
+2025-05-26 15:39:52,291 - edge_logger - INFO - Message size CBOR: 3607629 bytes. ENVIADO.
+
+2025-05-26 15:39:52,291 - edge_logger - INFO - [TS] SEQUENCE: testsizes. Camera [000442922112] sent message to BROKER, color: 000442922112_color_f0001.png, depth 000442922112_depth_f0001.png, time 1748266792277
+2025-05-26 15:39:52,291 - edge_logger - INFO - [Sending all frames of camera 000442922112 END
+2025-05-26 15:39:52,292 - edge_logger - INFO - Simulation ended
